@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bcrypt'
 gem 'flux-rails-assets'
+gem 'react-rails', '~> 1.3.0'
 gem 'bootstrap-sass'
 gem 'underscore-rails'
 gem 'newrelic_rpm'
