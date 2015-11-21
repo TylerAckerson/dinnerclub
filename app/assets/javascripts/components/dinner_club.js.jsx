@@ -23,7 +23,9 @@ $(function() {
 
   var routes = (
     <Router>
-      <Route path="/" component={App}/>
+      <Route path="/" component={App}>
+        <IndexRoute component={SignIn} />
+      </Route>
     </Router>
   );
 
