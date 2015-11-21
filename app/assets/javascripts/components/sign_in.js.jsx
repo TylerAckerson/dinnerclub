@@ -9,7 +9,6 @@ SignIn = React.createClass({
   },
 
   handleEmail: function(){
-    debugger;
     if (this.state.email === "") {
       $(".email-field").typed({
         strings: ["tyler@tyler.tyler"],
