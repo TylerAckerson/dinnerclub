@@ -9,6 +9,7 @@ SignIn = React.createClass({
   },
 
   handleEmail: function(){
+    debugger;
     if (this.state.email === "") {
       $(".email-field").typed({
         strings: ["tyler@tyler.tyler"],
@@ -34,7 +35,7 @@ SignIn = React.createClass({
                            onChange={this.updateEmail}
                            value={this.state.email}>
                     </input>
-                    <input className="btn btn-default"
+                    <input className="btn btn-primary"
                            type="submit"
                            value="GO"/>
                   </div>

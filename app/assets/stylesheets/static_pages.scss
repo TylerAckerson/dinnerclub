@@ -21,17 +21,50 @@ time, mark, audio, video {
 	font-family: "Gotham A","Gotham B",sans-serif;
   font-style: normal;
 	color: #6A7781;
-  background-color: whitesmoke;
 }
 
 #application {
-  color: white
+  position: absolute;
+	color: white;
+	width: 100%;
+	height: 100%;
+	background-image: url("https://dl.dropboxusercontent.com/u/4448887/table_background.jpg");
+}
+
+.btn.btn-primary {
+	color: #fff;
+	background-color: #137f6e;
+	border-color: darkslategray;
+}
+
+.btn.btn-primary:active, .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active:focus  {
+	// color: #fff;
+	// background-color: #137f6e;
+	background-color: darkslategray;
+	border-color: #137f6e;
+
+}
+
+.btn.btn-primary {
+	color: #fff;
+	background-color: #137f6e;
+	border-color: darkslategray;
 }
 
 .sign-in {
   border: 2px solid #137f6e;
   margin-top: 150px;
   padding: 30px;
+
+	background:
+		linear-gradient(
+			rgba(0, 0, 0, 0.7),
+			rgba(0, 0, 0, 0.7)
+		),
+}
+
+.sign-in h3 {
+	color: white;
 }
 
 .email-header {
