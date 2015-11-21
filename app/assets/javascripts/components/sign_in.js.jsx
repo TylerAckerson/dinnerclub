@@ -18,6 +18,8 @@ SignIn = React.createClass({
     } else {
       console.log("email submitted");
     }
+    userEmail = this.state.email;
+    ApiUtil.newUser(userEmail);
   },
 
   render: function(){

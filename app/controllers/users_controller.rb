@@ -4,6 +4,14 @@ class UsersController < ApplicationController
   end
 
   def create
+    debugger;
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to :root
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      render :root
+    end
   end
 
   def index
@@ -13,5 +21,10 @@ class UsersController < ApplicationController
   end
 
   def update
+  end
+
+  private
+  def users_params
+    params.require(:user).permit(:email)
   end
 end
