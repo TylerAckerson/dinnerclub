@@ -35,6 +35,10 @@ a.navbar-brand {
 	padding-top: 0;
 }
 
+.top-buffer {
+	margin-top: 30px;
+}
+
 .btn.btn-primary {
 	color: #fff;
 	background-color: #137f6e;
@@ -91,4 +95,23 @@ a.navbar-brand {
 	visibility: visible;
 	height: 100%;
 	margin-top: 15px;
+}
+
+.meal .btn.btn-default.remove {
+	border: 0;
+	background-color: inherit;
+	font-size: 20px;
+	padding: 0;
+
+}
+
+.meal .remove > span::before {
+	border: 0;
+  content: "\e014";
+	transition: all 1s ease;
+}
+
+.meal .remove:hover > span::before {
+	color: red;
+	content: "\2212";
 }
