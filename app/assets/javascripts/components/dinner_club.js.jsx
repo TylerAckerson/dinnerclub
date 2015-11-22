@@ -26,6 +26,7 @@ $(function() {
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={SignIn} />
+        <Route path="new" component="NewMeal" />
       </Route>
     </Router>
   );
