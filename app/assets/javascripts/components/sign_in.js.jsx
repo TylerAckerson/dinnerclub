@@ -25,7 +25,7 @@ SignIn = React.createClass({
 
     setTimeout(function(){
       $('#sign-up-success').addClass("hide");
-    }, 3500);
+    }, 5000);
 
     userEmail = this.state.email;
     ApiUtil.newUser(userEmail);
@@ -56,7 +56,7 @@ SignIn = React.createClass({
       </div>
       <div className="row text-center">
         <div id="sign-up-success" className="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 col-lg-2 col-lg-offset-5 hide">
-          <p>You&#39;re signed up!</p>
+          <p>You&#39;ve been placed on the waiting list!</p>
         </div>
       </div>
       </div>
