@@ -15,6 +15,7 @@ $(function() {
         <div>
           <Navbar/>
           <div id="container">
+            <SignIn />
             {this.props.children}
           </div>
         </div>
@@ -25,10 +26,8 @@ $(function() {
   var routes = (
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute component={SignIn} />
-        <Route path="new" component={NewMeal} />
-        <Route path="/meals/:mealId" components={{ signIn: SignIn,
-                                                    meal: Meal }} />
+        <Route path="/meals/new" component={NewMeal} />
+        <Route path="/meals/:mealId" component={Meal} />
       </Route>
     </Router>
   );
