@@ -3,7 +3,7 @@ Attendee = React.createClass({
   render: function(){
     return (
       <div>
-        Attendee...
+        <p>{this.props.attendee}</p>
       </div>
     );
   }

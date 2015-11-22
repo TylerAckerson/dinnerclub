@@ -5,8 +5,11 @@ Meal = React.createClass({
 
   render: function(){
     return (
-      <div className="container">
-        <div className="row text-center"> {
+      <div className="container text-center">
+        <div className="row">
+          <h2> Meal </h2>
+        </div>
+        <div className="row"> {
           this.dummyMeal().map(function(attendee){
             return <Attendee attendee={attendee} />;
           })
