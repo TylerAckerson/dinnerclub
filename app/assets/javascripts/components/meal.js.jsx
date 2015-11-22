@@ -11,14 +11,15 @@ Meal = React.createClass({
             <h3 className="header">Your meal</h3>
 
             <AddAttendee />
-
-            <h4>Attendee list</h4>
-            <div className="row"> {
-              this.dummyMeal().map(function(attendee){
-                return <Attendee key={attendee} attendee={attendee} />;
-              })
-            }
-            </div>
+            <h4 className="top-buffer">Attendee list</h4>
+            <table className="table">
+              <div className="row"> {
+                this.dummyMeal().map(function(attendee){
+                  return <Attendee key={attendee} attendee={attendee} />;
+                })
+              }
+              </div>
+            </table>
           </div>
         </div>
       </div>

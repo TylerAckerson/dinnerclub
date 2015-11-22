@@ -21,7 +21,7 @@ AddAttendee = React.createClass({
                           onSubmit={this.handleAttendee}>
 
             <div className="form-group">
-                  <input className="form-control email-field"
+                  <input className="form-control"
                          type="text"
                          placeholder="Attendee e-mail"
                          onChange={this.updateEmail}
