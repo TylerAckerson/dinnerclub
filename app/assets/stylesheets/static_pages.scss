@@ -52,7 +52,7 @@ a.navbar-brand {
 	border-color: darkslategray;
 }
 
-.sign-in {
+.sign-in, .meal {
   border: 2px solid #137f6e;
   margin-top: 150px;
   padding: 30px;
@@ -64,11 +64,12 @@ a.navbar-brand {
 		),
 }
 
-.sign-in h3 {
-	color: white;
+.meal {
+	margin-top: 90px;
 }
 
-.email-header {
+.header {
+	color: white;
 	margin-top: 0;
 }
 
