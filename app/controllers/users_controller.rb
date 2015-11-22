@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    debugger;
     @user = User.new(user_params)
+    @user.waitlisted = true
     if @user.save
       redirect_to :root
     else
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def users_params
+  def user_params
     params.require(:user).permit(:email)
   end
 end
