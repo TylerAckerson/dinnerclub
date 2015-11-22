@@ -8,5 +8,16 @@ var ApiUtil = {
         UserActions.receiveCurrentUser(current_user);
       }
     });
+  },
+
+  handleNewMeal: function(meal){
+    $.ajax({
+      url: 'api/meals',
+      type: 'POST',
+      data: meal,
+      success: function(meal){
+        console.log(meal);
+      }
+    })
   }
 };
