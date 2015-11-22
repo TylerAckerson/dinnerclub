@@ -20,4 +20,6 @@
 //= require react_ujs
 //= require react_router.min
 //= require components
+//= require moment.min
+//= require datepicker.min
 //= require_tree .

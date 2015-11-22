@@ -17,8 +17,14 @@ NewMeal = React.createClass({
     this.setState( { max_attendees: e.currentTarget.value } );
   },
 
+  updateMealTime: function(e) {
+    var date = e.toDate();
+    this.setState({ meal_time: date });
+  },
+
   handleNewMeal: function(e) {
     e.preventDefault();
+    debugger;
     ApiUtil.handleNewMeal({meal: this.state});
   },
 
@@ -40,6 +46,7 @@ NewMeal = React.createClass({
                    placeholder="How many are attending?"
                    onChange={this.updateMaxAttendees}
                    id="pac-input"/>
+            < Datetime onChange={this.updateMealTime} />
           </form>
           <button className="btn btn-default btn-lg"
             onClick={this.handleNewMeal}>
