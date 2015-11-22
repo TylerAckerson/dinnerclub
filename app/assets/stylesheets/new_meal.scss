@@ -1,0 +1,15 @@
+.display-box {
+  padding: 0;
+  width:100%;
+  max-width:980px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  top: 0px;
+  z-index: 20;
+  font-weight: bold;
+  border-radius: 0;
+  overflow: hidden;
+  overflow-x: hidden;
+}

@@ -26,7 +26,7 @@ $(function() {
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={SignIn} />
-        <Route path="new" component="NewMeal" />
+        <Route path="new" component={NewMeal} />
         <Route path="/meals/:mealId" components={{ signIn: SignIn,
                                                     meal: Meal }} />
       </Route>
