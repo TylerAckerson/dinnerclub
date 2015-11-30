@@ -26,15 +26,17 @@ NewMeal = React.createClass({
     e.preventDefault();
     debugger;
     ApiUtil.handleNewMeal({meal: this.state});
+
+    // this.props.history.pushState(null, "/meals/" + mealId)
+    this.props.history.pushState(null, "meals/1");
   },
 
   render: function(){
     return (
-      <div className="container text-center">
+      <div className="container text-center ">
         <div className="row">
-          <h2> New Meal </h2>
-        </div>
-        <div className="display-box">
+        <div className="col-sm-6 col-sm-offset-3 meal">
+          <h3 className="header"> New Meal </h3>
           <form>
             <input className="form-control"
                    type="text"
@@ -48,10 +50,11 @@ NewMeal = React.createClass({
                    id="pac-input"/>
             < Datetime onChange={this.updateMealTime} />
           </form>
-          <button className="btn btn-default btn-lg"
+          <button className="btn btn-primary top-buffer create-meal"
             onClick={this.handleNewMeal}>
-            New Meal
+            Create Meal
           </button>
+        </div>
         </div>
       </div>
     );
