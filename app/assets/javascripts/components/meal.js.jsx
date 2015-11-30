@@ -8,7 +8,7 @@ Meal = React.createClass({
       <div className="container text-center">
         <div className="row">
           <div className="col-sm-6 col-sm-offset-3 meal">
-            <h3 className="header">Your meal</h3>
+            <h3 className="header">Meal</h3>
 
             <AddAttendee />
             <h4 className="top-buffer">Attendee list</h4>
