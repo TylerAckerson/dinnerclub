@@ -1,4 +1,5 @@
 SignIn = React.createClass({
+
   getInitialState: function(){
     return { email: "" };
   },
@@ -31,6 +32,7 @@ SignIn = React.createClass({
     ApiUtil.newUser(userEmail);
   },
 
+
   render: function(){
     return (
       <div>
@@ -54,11 +56,13 @@ SignIn = React.createClass({
           </form>
         </div>
       </div>
+
       <div className="row text-center">
         <div id="sign-up-success" className="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 col-lg-2 col-lg-offset-5 hide">
           <p>You&#39;ve been placed on the waiting list!</p>
         </div>
       </div>
+
       </div>
     );
   }
