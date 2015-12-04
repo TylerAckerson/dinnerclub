@@ -1,7 +1,7 @@
 NewMeal = React.createClass({
   getInitialState: function(){
+      // max_attendees: "",
     return {
-      max_attendees: "",
       main_course: "",
       meal_time: ""
     };
@@ -12,10 +12,10 @@ NewMeal = React.createClass({
     this.setState( { main_course: e.currentTarget.value } );
   },
 
-  updateMaxAttendees: function(e) {
-    e.preventDefault();
-    this.setState( { max_attendees: e.currentTarget.value } );
-  },
+  // updateMaxAttendees: function(e) {
+  //   e.preventDefault();
+  //   this.setState( { max_attendees: e.currentTarget.value } );
+  // },
 
   updateMealTime: function(e) {
     var date = e.toDate();
@@ -32,6 +32,11 @@ NewMeal = React.createClass({
   },
 
   render: function(){
+            // <input className="form-control"
+            //        type=""
+            //        placeholder="How many are attending?"
+            //        onChange={this.updateMaxAttendees}
+            //        id="pac-input"/>
     return (
       <div className="container text-center top-buffer">
         <div className="row">
@@ -43,13 +48,10 @@ NewMeal = React.createClass({
                    placeholder="What's cookin'?"
                    onChange={this.updateMainCourse}
                    id="pac-input"/>
-            <input className="form-control"
-                   type=""
-                   placeholder="How many are attending?"
-                   onChange={this.updateMaxAttendees}
-                   id="pac-input"/>
-            < Datetime onChange={this.updateMealTime} />
+            <Datetime onChange={this.updateMealTime} />
           </form>
+          <h4 className="top-buffer"> Attendees </h4>
+            <div>Place to add attendees</div>
           <button className="btn btn-primary top-buffer create-meal"
             onClick={this.handleNewMeal}>
             Create Meal
