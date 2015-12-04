@@ -31,6 +31,11 @@ time, mark, audio, video {
 	background-image: url("https://dl.dropboxusercontent.com/u/4448887/table_background.jpg");
 }
 
+.navbar.navbar-default{
+	background-color: rgba(255, 255, 255, 0.85);
+	border: 0;
+}
+
 a.navbar-brand {
 	padding-top: 0;
 }
@@ -58,18 +63,9 @@ a.navbar-brand {
 
 .sign-in, .meal {
   border: 2px solid #137f6e;
-  margin-top: 150px;
   padding: 30px;
-
-	background:
-		linear-gradient(
-			rgba(0, 0, 0, 0.7),
-			rgba(0, 0, 0, 0.7)
-		),
-}
-
-.meal {
-	margin-top: 90px;
+	background: rgba(0, 0, 0, 0.7);
+	padding: 50px;
 }
 
 .header {
@@ -89,12 +85,12 @@ a.navbar-brand {
 }
 
 #sign-up-success {
-	border: 2px solid black;
+	border: 2px solid white;
 	border-radius: 5px;
 
 	visibility: visible;
-	height: 100%;
-	margin-top: 15px;
+	margin-top: -43px;
+	position: absolute;
 }
 
 .meal .btn.btn-default.remove {

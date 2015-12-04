@@ -5,7 +5,7 @@ Meal = React.createClass({
 
   render: function(){
     return (
-      <div className="container text-center">
+      <div className="container text-center top-buffer">
         <div className="row">
           <div className="col-sm-6 col-sm-offset-3 meal">
             <h3 className="header">Meal</h3>
