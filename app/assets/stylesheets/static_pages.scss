@@ -65,6 +65,7 @@ a.navbar-brand {
   border: 2px solid #137f6e;
   padding: 30px;
 	background: rgba(0, 0, 0, 0.7);
+	padding: 50px;
 }
 
 .header {
@@ -84,12 +85,12 @@ a.navbar-brand {
 }
 
 #sign-up-success {
-	border: 2px solid black;
+	border: 2px solid white;
 	border-radius: 5px;
 
 	visibility: visible;
-	height: 100%;
-	margin-top: 15px;
+	margin-top: -43px;
+	position: absolute;
 }
 
 .meal .btn.btn-default.remove {
