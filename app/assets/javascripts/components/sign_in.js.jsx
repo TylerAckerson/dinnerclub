@@ -26,7 +26,7 @@ SignIn = React.createClass({
 
     setTimeout(function(){
       $('#sign-up-success').addClass("hide");
-    }, 5000);
+    }, 3000);
 
     userEmail = this.state.email;
     ApiUtil.newUser(userEmail);
