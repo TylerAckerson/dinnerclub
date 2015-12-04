@@ -31,6 +31,11 @@ time, mark, audio, video {
 	background-image: url("https://dl.dropboxusercontent.com/u/4448887/table_background.jpg");
 }
 
+.navbar.navbar-default{
+	background-color: rgba(255, 255, 255, 0.85);
+	border: 0;
+}
+
 a.navbar-brand {
 	padding-top: 0;
 }
@@ -58,13 +63,8 @@ a.navbar-brand {
 
 .sign-in, .meal {
   border: 2px solid #137f6e;
-  margin-top: 150px;
   padding: 30px;
 	background: rgba(0, 0, 0, 0.7);
-}
-
-.meal {
-	margin-top: 90px;
 }
 
 .header {

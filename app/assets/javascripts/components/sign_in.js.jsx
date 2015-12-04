@@ -36,7 +36,7 @@ SignIn = React.createClass({
   render: function(){
     return (
       <div>
-      <div className="row sign-in text-center">
+      <div className="row text-center top-buffer sign-in">
         <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
           <h3 className="header">Enter your email:</h3>
           <form role="form" className="form-inline"
