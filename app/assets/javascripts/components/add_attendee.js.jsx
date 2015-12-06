@@ -3,9 +3,11 @@ AddAttendee = React.createClass({
     return { email: "" };
   },
 
-  handleAttendee: function(e){
+  addAttendee: function(e){
     e.preventDefault();
-    //add attendee to meal
+
+    this.props.addAttendee(this.state);
+    this.setState(this.getInitialState());
   },
 
   updateEmail: function(e) {
@@ -18,7 +20,7 @@ AddAttendee = React.createClass({
       <div className="row">
         <h4>Invite a friend to this meal</h4>
         <form role="form" className="form-inline"
-                          onSubmit={this.handleAttendee}>
+                          onSubmit={this.addAttendee}>
 
             <div className="form-group">
                   <input className="form-control"
