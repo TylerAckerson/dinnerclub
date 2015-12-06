@@ -1,20 +1,16 @@
 NewMeal = React.createClass({
   getInitialState: function(){
+
     return {
-      max_attendees: "",
       main_course: "",
-      meal_time: ""
+      meal_time: "",
+      attendees: []
     };
   },
 
   updateMainCourse: function(e) {
     e.preventDefault();
     this.setState( { main_course: e.currentTarget.value } );
-  },
-
-  updateMaxAttendees: function(e) {
-    e.preventDefault();
-    this.setState( { max_attendees: e.currentTarget.value } );
   },
 
   updateMealTime: function(e) {
@@ -26,10 +22,19 @@ NewMeal = React.createClass({
     e.preventDefault();
     debugger;
     ApiUtil.handleNewMeal({meal: this.state});
-
-    // this.props.history.pushState(null, "/meals/" + mealId)
-    this.props.history.pushState(null, "meals/1");
   },
+
+  addAttendee: function(email) {
+    newAttendees = this.state.attendees;
+    newAttendees.push(email);
+    newState = $.extend(this.state, {attendees: newAttendees});
+
+    this.setState(newState);
+  },
+
+  // dummyMeal: function(){
+  //   return ['tyler@tyler.tyler', 'jeff@jeff.jeff', 'andrew@andrew.andrew'];
+  // },
 
   render: function(){
     return (
@@ -43,14 +48,21 @@ NewMeal = React.createClass({
                    placeholder="What's cookin'?"
                    onChange={this.updateMainCourse}
                    id="pac-input"/>
-            <input className="form-control"
-                   type=""
-                   placeholder="How many are attending?"
-                   onChange={this.updateMaxAttendees}
-                   id="pac-input"/>
-            < Datetime onChange={this.updateMealTime} />
+            <Datetime onChange={this.updateMealTime} />
           </form>
-          <button className="btn btn-primary top-buffer create-meal"
+
+          <h3 className="top-buffer"> Attendees </h3>
+
+          <AddAttendee addAttendee={this.addAttendee} />
+
+          <table className="table top-buffer"> {
+              this.state.attendees.map(function(attendee){
+                return <Attendee key={attendee} attendee={attendee} />;
+              })
+            }
+          </table>
+
+          <button className="btn btn-primary create-meal"
             onClick={this.handleNewMeal}>
             Create Meal
           </button>

@@ -15,9 +15,6 @@ SignIn = React.createClass({
         strings: ["tyler@tyler.tyler"],
         typeSpeed: 0
       });
-      console.log("tyler email submitted");
-    } else {
-      console.log("email submitted");
     }
 
     setTimeout(function(){
