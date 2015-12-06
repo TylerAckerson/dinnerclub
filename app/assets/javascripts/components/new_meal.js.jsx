@@ -26,12 +26,12 @@ NewMeal = React.createClass({
 
   addAttendee: function(email) {
     newAttendees = this.state.attendees;
-    newAttendees.push(email.email);
+    newAttendees.push(email);
     newState = $.extend(this.state, {attendees: newAttendees});
 
     this.setState(newState);
   },
-  //
+
   // dummyMeal: function(){
   //   return ['tyler@tyler.tyler', 'jeff@jeff.jeff', 'andrew@andrew.andrew'];
   // },
@@ -57,13 +57,11 @@ NewMeal = React.createClass({
 
           <AddAttendee addAttendee={this.addAttendee} />
 
-          <table className="table top-buffer">
-            <div className="row"> {
+          <table className="table top-buffer"> {
               this.state.attendees.map(function(attendee){
                 return <Attendee key={attendee} attendee={attendee} />;
               })
             }
-            </div>
           </table>
 
           <button className="btn btn-primary create-meal"

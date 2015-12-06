@@ -118,3 +118,13 @@ a.navbar-brand {
 	font-size: 20px;
 	border-width: 2px;
 }
+
+.form-control.invalid {
+	border: 2px solid red;
+	background-color: lightpink;
+}
+
+// .form-control.valid {
+// 	border: 2px solid green;
+// 	background-color: mintcream;
+// }

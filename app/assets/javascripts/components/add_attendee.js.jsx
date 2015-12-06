@@ -3,16 +3,41 @@ AddAttendee = React.createClass({
     return { email: "" };
   },
 
-  addAttendee: function(e){
-    e.preventDefault();
-
-    this.props.addAttendee(this.state);
-    this.setState(this.getInitialState());
-  },
-
   updateEmail: function(e) {
     e.preventDefault();
     this.setState( { email: e.currentTarget.value } );
+  },
+
+  addAttendee: function(e){
+    e.preventDefault();
+
+    email = this.state.email;
+    if (this.validateEmail(email)) {
+      this.props.addAttendee(email);
+      this.setState(this.getInitialState());
+    }
+  },
+
+  validateEmail: function(email){
+    if ( typeof email === "undefined" || !(this.isEmail(email)) ) {
+      $("#email").addClass("invalid");
+      // $("#email").removeClass("valid");
+      return false;
+    } else {
+      // $("#email").addClass("valid");
+      $("#email").removeClass("invalid");
+      return true;
+    }
+  },
+
+  isEmail: function(str){
+    var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    if (str.match(pattern)){
+      return str.match(pattern)[0] === str;
+    } else {
+      return false;
+    }
   },
 
   render: function(){
@@ -24,6 +49,7 @@ AddAttendee = React.createClass({
 
             <div className="form-group">
                   <input className="form-control"
+                         id="email"
                          type="text"
                          placeholder="Attendee e-mail"
                          onChange={this.updateEmail}
