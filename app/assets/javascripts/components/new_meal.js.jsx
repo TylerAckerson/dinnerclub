@@ -37,8 +37,6 @@ NewMeal = React.createClass({
   // },
 
   render: function(){
-    console.log(this.state.attendees);
-
     return (
       <div className="container text-center top-buffer">
         <div className="row">
