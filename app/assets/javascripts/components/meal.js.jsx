@@ -7,11 +7,11 @@ Meal = React.createClass({
     return (
       <div className="container text-center top-buffer">
         <div className="row">
-          <div className="col-sm-6 col-sm-offset-3 meal">
+          <div className="col-sm-8 col-sm-offset-2 meal">
             <h3 className="header">Meal</h3>
-
             <AddAttendee />
-            <h4 className="top-buffer">Attendee list</h4>
+
+            <h3>Attendee list</h3>
             <table className="table">
               <div className="row"> {
                 this.dummyMeal().map(function(attendee){

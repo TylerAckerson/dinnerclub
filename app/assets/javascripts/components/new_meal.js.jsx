@@ -26,9 +26,6 @@ NewMeal = React.createClass({
     e.preventDefault();
     debugger;
     ApiUtil.handleNewMeal({meal: this.state});
-
-    // this.props.history.pushState(null, "/meals/" + mealId)
-    // this.props.history.pushState(null, "meals/1");
   },
 
   dummyMeal: function(){
@@ -36,11 +33,7 @@ NewMeal = React.createClass({
   },
 
   render: function(){
-            // <input className="form-control"
-            //        type=""
-            //        placeholder="How many are attending?"
-            //        onChange={this.updateMaxAttendees}
-            //        id="pac-input"/>
+
     return (
       <div className="container text-center top-buffer">
         <div className="row">
@@ -57,9 +50,10 @@ NewMeal = React.createClass({
 
           <h3 className="top-buffer"> Attendees </h3>
           <div className="row">
-            <div className="col-sm-6 col-sm-offset-3">
+
               <AddAttendee />
-              <table className="table">
+
+              <table className="table top-buffer">
                 <div className="row"> {
                   this.dummyMeal().map(function(attendee){
                     return <Attendee key={attendee} attendee={attendee} />;
@@ -67,10 +61,10 @@ NewMeal = React.createClass({
                 }
                 </div>
               </table>
-            </div>
+
           </div>
 
-          <button className="btn btn-primary top-buffer create-meal"
+          <button className="btn btn-primary create-meal"
             onClick={this.handleNewMeal}>
             Create Meal
           </button>
