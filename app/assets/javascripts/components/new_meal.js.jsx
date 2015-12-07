@@ -8,28 +8,42 @@ NewMeal = React.createClass({
     };
   },
 
+  _updateMeal: function(){
+    this.setState( MealStore.currentMeal() );
+  },
+
+  componentDidMount: function() {
+    MealStore.addChangeListener(this._updateMeal);
+  },
+
+  componentWillUnmount: function(){
+    MealStore.addChangeListener(this._updateMeal);
+  },
+
   updateMainCourse: function(e) {
     e.preventDefault();
-    this.setState( { main_course: e.currentTarget.value } );
+    // this.setState( { main_course: e.currentTarget.value } );
   },
 
   updateMealTime: function(e) {
     var date = e.toDate();
-    this.setState({ meal_time: date });
+    // this.setState({ meal_time: date });
   },
 
-  handleNewMeal: function(e) {
-    e.preventDefault();
-    debugger;
-    ApiUtil.handleNewMeal({meal: this.state});
-  },
+  // handleNewMeal: function(e) {
+  //   e.preventDefault();
+  //   debugger;
+  //   ApiUtil.handleNewMeal({meal: this.state});
+  // },
 
   addAttendee: function(email) {
-    newAttendees = this.state.attendees;
-    newAttendees.push(email);
-    newState = $.extend(this.state, {attendees: newAttendees});
+    MealActions.addAttendee(email);
 
-    this.setState(newState);
+    // newAttendees = this.state.attendees;
+    // newAttendees.push(email);
+    // newState = $.extend(this.state, {attendees: newAttendees});
+
+    // this.setState(newState);
   },
 
   // dummyMeal: function(){
