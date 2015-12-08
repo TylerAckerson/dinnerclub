@@ -122,6 +122,10 @@ a.navbar-brand {
 	background-color: lightpink;
 }
 
+table tr:last-child > td[class*="col-"], table th[class*="col-"] {
+	border-bottom: 1px solid #ddd;
+}
+
 // .form-control.valid {
 // 	border: 2px solid green;
 // 	background-color: mintcream;

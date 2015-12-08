@@ -64,7 +64,8 @@ NewMeal = React.createClass({
           <AddAttendee addAttendee={this.addAttendee} />
 
           <table className="table top-buffer">
-            <tbody> {
+            <tbody>
+            {  
               this.state.attendees.map(function(attendee){
                 console.log(attendee);
                 return <Attendee key={attendee} attendee={attendee} />;
