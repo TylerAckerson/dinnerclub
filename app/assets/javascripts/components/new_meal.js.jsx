@@ -22,6 +22,7 @@ NewMeal = React.createClass({
 
   updateMainCourse: function(e) {
     e.preventDefault();
+    MealActions.updateMainCourse(e.currentTarget.value);
     // this.setState( { main_course: e.currentTarget.value } );
   },
 
@@ -71,7 +72,6 @@ NewMeal = React.createClass({
             <tbody>
             {
               this.state.attendees.map(function(attendee){
-                console.log(attendee);
                 return <Attendee key={attendee} attendee={attendee} />;
               })
             }

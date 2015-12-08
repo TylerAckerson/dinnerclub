@@ -4,7 +4,7 @@
   var _currentMeal = { main_course: "",
                        meal_time: "",
                        attendees: [] };
-                       
+
   var MEAL_CHANGE_EVENT = "changeMeal";
 
   root.MealStore = $.extend({}, EventEmitter.prototype, {
@@ -33,6 +33,10 @@
       return foundIdx;
     },
 
+    updateMainCourse: function(course){
+      _currentMeal.main_course = course;
+    },
+
     addChangeListener: function(callback){
       this.on(MEAL_CHANGE_EVENT, callback);
     },
@@ -49,6 +53,10 @@
           break;
         case (MealConstants.MEAL_REMOVE_ATTENDEE):
           root.MealStore.removeAttendee(payload.attendee);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          break;
+        case (MealConstants.MEAL_UPDATE_MAIN_COURSE):
+          root.MealStore.updateMainCourse(payload.course);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
         }
