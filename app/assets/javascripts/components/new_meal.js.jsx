@@ -40,17 +40,11 @@ NewMeal = React.createClass({
     MealActions.addAttendee(email);
   },
 
-  // removeAttendee: function(email) {
-  //   debugger;
-  //   MealActions.removeAttendee(email);
-  // },
-
   // dummyMeal: function(){
   //   return ['tyler@tyler.tyler', 'jeff@jeff.jeff', 'andrew@andrew.andrew'];
   // },
 
   render: function(){
-    debugger;
     return (
       <div className="container text-center top-buffer">
         <div className="row">
