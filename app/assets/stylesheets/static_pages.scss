@@ -122,6 +122,11 @@ a.navbar-brand {
 	background-color: lightpink;
 }
 
+#email {
+	display: inline-block;
+	width: 75%;
+}
+
 table tr:last-child > td[class*="col-"], table th[class*="col-"] {
 	border-bottom: 1px solid #ddd;
 }

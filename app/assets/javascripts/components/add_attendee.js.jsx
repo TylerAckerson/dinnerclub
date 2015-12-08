@@ -21,10 +21,8 @@ AddAttendee = React.createClass({
   validateEmail: function(email){
     if ( typeof email === "undefined" || !(this.isEmail(email)) ) {
       $("#email").addClass("invalid");
-      // $("#email").removeClass("valid");
       return false;
     } else {
-      // $("#email").addClass("valid");
       $("#email").removeClass("invalid");
       return true;
     }
@@ -44,23 +42,25 @@ AddAttendee = React.createClass({
     return (
       <div className="row">
         <h4>Invite a friend to this meal</h4>
-        <form role="form" className="form-inline"
-                          onSubmit={this.addAttendee}>
+        <div className="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-2">
+          <form role="form" className="form"
+                            onSubmit={this.addAttendee}>
 
-            <div className="form-group">
-                  <input className="form-control"
-                         id="email"
-                         type="text"
-                         placeholder="Attendee e-mail"
-                         onChange={this.updateEmail}
-                         value={this.state.email}>
-                  </input>
-                  <input className="btn btn-primary"
-                         type="submit"
-                         value="Add"/>
-                </div>
+              <div className="form-group">
+                    <input className="form-control"
+                           id="email"
+                           type="text"
+                           placeholder="Attendee e-mail"
+                           onChange={this.updateEmail}
+                           value={this.state.email}>
+                    </input>
+                    <input className="btn btn-primary"
+                           type="submit"
+                           value="Add"/>
+                  </div>
 
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
