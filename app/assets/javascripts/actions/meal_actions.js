@@ -22,5 +22,11 @@ var MealActions = {
       actionType: MealConstants.MEAL_UPDATE_DATE_TIME,
       datetime: datetime
     });
+  },
+  receiveMeal: function(meal){
+    AppDispatcher.dispatch({
+      actionType: MealConstants.MEAL_RECEIVE,
+      meal: meal
+    });
   }
 };

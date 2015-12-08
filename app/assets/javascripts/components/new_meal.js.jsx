@@ -9,7 +9,6 @@ NewMeal = React.createClass({
   },
 
   _updateMeal: function(){
-    console.log("meal updated");
     this.setState( MealStore.currentMeal() );
   },
 
@@ -35,11 +34,10 @@ NewMeal = React.createClass({
     }
   },
 
-  // handleNewMeal: function(e) {
-  //   e.preventDefault();
-  //   debugger;
-  //   ApiUtil.handleNewMeal({meal: this.state});
-  // },
+  handleNewMeal: function(e) {
+    e.preventDefault();
+    ApiUtil.createNewMeal({meal: this.state});
+  },
 
   addAttendee: function(email) {
     MealActions.addAttendee(email);

@@ -12,6 +12,11 @@
       return $.extend({}, _currentMeal);
     },
 
+    receiveMeal: function(meal){
+      debugger;
+      _currentMeal = meal;
+    },
+
     addAttendee: function(attendee){
       _currentMeal.attendees.push(attendee);
     },
@@ -65,6 +70,10 @@
           break;
         case (MealConstants.MEAL_UPDATE_DATE_TIME):
           root.MealStore.updateDateTime(payload.datetime);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          break;
+        case (MealConstants.MEAL_RECEIVE):
+          root.MealStore.receiveMeal(payload.meal);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
         }

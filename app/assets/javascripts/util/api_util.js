@@ -10,14 +10,17 @@ var ApiUtil = {
     });
   },
 
-  handleNewMeal: function(meal){
+  createNewMeal: function(meal){
     $.ajax({
       url: 'api/meals',
       type: 'POST',
       data: meal,
       success: function(meal){
-        console.log(meal);
+        MealActions.receiveMeal(meal);
+      },
+      failure: function(response){
+        console.log(response);
       }
-    })
+    });
   }
 };

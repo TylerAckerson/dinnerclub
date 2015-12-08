@@ -8,9 +8,18 @@ Attendee = React.createClass({
   },
 
   render: function(){
+    var attendee;
+
+    if (typeof this.props.attendee === Object){
+      // temporary to handle json respons that doesn't yet contain email
+      attendee = this.props.attendee.id;
+    } else {
+      attendee = this.props.attendee;
+    }
+
     return (
       <tr className="row">
-        <td className="col-xs-6 col-xs-offset-2 text-left">{this.props.attendee}</td>
+        <td className="col-xs-6 col-xs-offset-2 text-left">{attendee}</td>
         <td className="col-xs-2">
           <button type="submit"
           className="btn btn-default full-width remove"
