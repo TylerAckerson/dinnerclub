@@ -9,6 +9,7 @@ NewMeal = React.createClass({
   },
 
   _updateMeal: function(){
+    console.log("meal updated");
     this.setState( MealStore.currentMeal() );
   },
 
@@ -23,12 +24,15 @@ NewMeal = React.createClass({
   updateMainCourse: function(e) {
     e.preventDefault();
     MealActions.updateMainCourse(e.currentTarget.value);
-    // this.setState( { main_course: e.currentTarget.value } );
   },
 
   updateMealTime: function(e) {
-    var date = e.toDate();
-    // this.setState({ meal_time: date });
+    var datetime;
+
+    if (e._isAMomentObject === true) {
+      datetime = e.toDate();
+      MealActions.updateMealTime(datetime);
+    }
   },
 
   // handleNewMeal: function(e) {

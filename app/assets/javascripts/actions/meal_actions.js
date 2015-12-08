@@ -16,5 +16,11 @@ var MealActions = {
       actionType: MealConstants.MEAL_UPDATE_MAIN_COURSE,
       course: course
     });
+  },
+  updateMealTime: function(datetime){
+    AppDispatcher.dispatch({
+      actionType: MealConstants.MEAL_UPDATE_DATE_TIME,
+      datetime: datetime
+    });
   }
 };

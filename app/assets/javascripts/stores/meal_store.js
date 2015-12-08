@@ -37,6 +37,10 @@
       _currentMeal.main_course = course;
     },
 
+    updateDateTime: function(datetime) {
+      _currentMeal.meal_time = datetime;
+    },
+
     addChangeListener: function(callback){
       this.on(MEAL_CHANGE_EVENT, callback);
     },
@@ -57,6 +61,10 @@
           break;
         case (MealConstants.MEAL_UPDATE_MAIN_COURSE):
           root.MealStore.updateMainCourse(payload.course);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          break;
+        case (MealConstants.MEAL_UPDATE_DATE_TIME):
+          root.MealStore.updateDateTime(payload.datetime);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
         }
