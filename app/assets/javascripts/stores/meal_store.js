@@ -1,7 +1,10 @@
 (function(root) {
   'use strict';
 
-  var _currentMeal = { attendees: [] };
+  var _currentMeal = { main_course: "",
+                       meal_time: "",
+                       attendees: [] };
+                       
   var MEAL_CHANGE_EVENT = "changeMeal";
 
   root.MealStore = $.extend({}, EventEmitter.prototype, {
@@ -14,7 +17,20 @@
     },
 
     removeAttendee: function(attendee){
-      console.log("remove attendee");
+      var attendeeIdx = this._findAttendee(attendee);
+
+      if (attendeeIdx !== -1) {
+        _currentMeal.attendees.splice(attendeeIdx, 1);
+      }
+    },
+
+    _findAttendee: function(email) {
+      var foundIdx = -1;
+      this.currentMeal().attendees.forEach(function(attendee, idx) {
+        if (email === attendee) { foundIdx = idx; }
+      });
+
+      return foundIdx;
     },
 
     addChangeListener: function(callback){

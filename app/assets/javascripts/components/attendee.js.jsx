@@ -3,7 +3,7 @@ Attendee = React.createClass({
     e.preventDefault();
 
     setTimeout(function() {
-      // OrderActions.orderRemoveItem(this.props.orderItem.counter);
+      MealActions.removeAttendee(this.props.attendee);
     }.bind(this), 500 );
   },
 
