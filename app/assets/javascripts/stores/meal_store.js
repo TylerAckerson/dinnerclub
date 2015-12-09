@@ -13,7 +13,6 @@
     },
 
     receiveMeal: function(meal){
-      debugger;
       _currentMeal = meal;
     },
 
