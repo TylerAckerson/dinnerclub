@@ -133,6 +133,16 @@ table tr:last-child > td[class*="col-"], table th[class*="col-"] {
 	border-bottom: 1px solid #ddd;
 }
 
+div.rdtPicker {
+	position: absolute;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+// .rdtPicker td.active {
+// 	background-color: #137f6e;
+// }
+
 .rdtDays * {
 	color: black;
 }

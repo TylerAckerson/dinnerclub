@@ -74,7 +74,7 @@ NewMeal = React.createClass({
             <tbody>
             {
               this.state.attendees.map(function(attendee){
-                return <Attendee key={attendee} attendee={attendee} />;
+                return <Attendee key={attendee.email} attendee={attendee} />;
               })
             }
             </tbody>

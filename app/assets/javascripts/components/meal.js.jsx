@@ -15,7 +15,7 @@ Meal = React.createClass({
             <table className="table">
               <div className="row"> {
                 this.dummyMeal().map(function(attendee){
-                  return <Attendee key={attendee} attendee={attendee} />;
+                  return <Attendee key={attendee.email} attendee={attendee} />;
                 })
               }
               </div>

@@ -17,7 +17,7 @@
     },
 
     addAttendee: function(attendee){
-      _currentMeal.attendees.push(attendee);
+      _currentMeal.attendees.push({ email: attendee });
     },
 
     removeAttendee: function(attendee){
