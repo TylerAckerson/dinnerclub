@@ -42,7 +42,7 @@ AddAttendee = React.createClass({
     return (
       <div className="row">
         <h4>Invite a friend to this meal</h4>
-        <div className="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-2">
+        <div className="col-sm-8 col-sm-offset-2">
           <form role="form" className="form"
                             onSubmit={this.addAttendee}>
 

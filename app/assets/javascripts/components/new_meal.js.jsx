@@ -53,7 +53,7 @@ NewMeal = React.createClass({
         <div className="row">
         <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
           <div className="row">
-            <div className="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-2">
+            <div className="col-sm-8 col-sm-offset-2">
               <h3 className="header"> New Meal </h3>
               <form>
                 <input className="form-control"
