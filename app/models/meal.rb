@@ -3,10 +3,12 @@ class Meal < ActiveRecord::Base
     class_name: "User",
     foreign_key: :owner_id,
     primary_key: :id
-  has_many :users,
-    class_name: "Attendee",
-    foreign_key: :meal_id
+
   has_many :attendees,
-    through: :users,
+    foreign_key: :meal_id,
+    primary_key: :id
+
+  has_many :users,
+    through: :attendees,
     source: :user
 end

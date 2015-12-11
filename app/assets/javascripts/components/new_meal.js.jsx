@@ -48,6 +48,10 @@ NewMeal = React.createClass({
   // },
 
   render: function(){
+    // if (this.state.attendees[0] && this.state.attendees[0].id !== undefined){
+    //   debugger;
+    // }
+
     return (
       <div className="container text-center top-buffer">
         <div className="row">
