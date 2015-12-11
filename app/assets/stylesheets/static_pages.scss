@@ -120,7 +120,7 @@ a.navbar-brand {
 }
 
 .form-control.invalid {
-	border: 2px solid red;
+	border: 1px solid maroon;
 	background-color: lightpink;
 }
 
@@ -146,8 +146,3 @@ div.rdtPicker {
 .rdtDays * {
 	color: black;
 }
-
-// .form-control.valid {
-// 	border: 2px solid green;
-// 	background-color: mintcream;
-// }

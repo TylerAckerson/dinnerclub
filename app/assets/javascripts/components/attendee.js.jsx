@@ -9,14 +9,6 @@ Attendee = React.createClass({
 
   render: function(){
     var attendee = this.props.attendee.email;
-    debugger;
-    //
-    // if (typeof this.props.attendee === Object){
-    //   // temporary to handle json respons that doesn't yet contain email
-    //   attendee = this.props.attendee.id;
-    // } else {
-    //   attendee = this.props.attendee;
-    // }
 
     return (
       <tr className="row">

@@ -36,16 +36,55 @@ NewMeal = React.createClass({
 
   handleNewMeal: function(e) {
     e.preventDefault();
-    ApiUtil.createNewMeal({meal: this.state});
+
+    if ( this.runValidations() ) {
+      ApiUtil.createNewMeal({meal: this.state});
+    } else {
+      console.log("missing required information");
+    }
+  },
+
+  runValidations: function() {
+    main = this.validateMainDish(this.state.main_course);
+    date = this.validateDateTime(this.state.meal_time);
+    attendees = this.validateAttendees(this.state.attendees);
+
+    return (main && date && attendees);
+  },
+
+  validateMainDish: function(main_dish){
+    if ( typeof main_dish === "undefined" || main_dish.length < 3 ) {
+      $("#pac-input").addClass("invalid");
+      return false;
+    } else {
+      $("#pac-input").removeClass("invalid");
+      return true;
+    }
+  },
+
+  validateDateTime: function(date_time){
+    if ( typeof date_time === "undefined" || date_time.length === 0 ) {
+      $(".rdt input.form-control").addClass("invalid");
+      return false;
+    } else {
+      $(".rdt input.form-control").removeClass("invalid");
+      return true;
+    }
+  },
+
+  validateAttendees: function(attendees){
+    if ( typeof attendees === "undefined" || attendees.length === 0 ) {
+      $("#email").addClass("invalid");
+      return false;
+    } else {
+      $("#email").removeClass("invalid");
+      return true;
+    }
   },
 
   addAttendee: function(email) {
     MealActions.addAttendee(email);
   },
-
-  // dummyMeal: function(){
-  //   return ['tyler@tyler.tyler', 'jeff@jeff.jeff', 'andrew@andrew.andrew'];
-  // },
 
   render: function(){
     // if (this.state.attendees[0] && this.state.attendees[0].id !== undefined){
