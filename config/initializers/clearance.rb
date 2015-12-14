@@ -1,3 +1,5 @@
 Clearance.configure do |config|
-  config.mailer_sender = "reply@example.com"
+  config.routes = false
+  # temp email
+  config.mailer_sender = "tyler.a.ackerson@gmail.com"
 end

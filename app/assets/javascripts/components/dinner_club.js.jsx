@@ -13,7 +13,6 @@ $(function() {
     render: function(){
       return (
         <div>
-          <Navbar/>
           <div id="container">
             <SignIn />
             {this.props.children}

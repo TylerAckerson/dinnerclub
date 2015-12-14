@@ -20,7 +20,8 @@ time, mark, audio, video {
   list-style: none;
 	font-family: "Gotham A","Gotham B",sans-serif;
   font-style: normal;
-	color: white;
+	color: black;
+	// color: white;
 }
 
 #application {
@@ -148,6 +149,3 @@ div.rdtPicker {
 }
 
 //// for Oauth
-.page-header > h1 {
-	color: black;
-}
