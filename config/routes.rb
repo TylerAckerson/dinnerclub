@@ -17,12 +17,12 @@ Rails.application.routes.draw do
   end
 
   constraints Clearance::Constraints::SignedOut.new do
-    root to: 'static_pages#index'
+    root to: 'static_pages#home'
   end
 
   # root "static_pages#home"
   # root "static_pages#index"
-  
+
   resources :users, only: [:new, :create, :index, :show, :update]
 
   namespace :api, defaults: {format: :json} do
