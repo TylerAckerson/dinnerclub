@@ -1,7 +1,19 @@
 SignIn = React.createClass({
-
   getInitialState: function(){
     return { email: "" };
+  },
+
+  componentDidMount: function(){
+    ApiUtil.fetchCurrentUser();
+    CurrentUserStore.addCurrentUserChangeListener(this.userUpdated);
+  },
+
+  componentWillUnmount: function(){
+    CurrentUserStore.removeCurrentUserChangeListener(this.userUpdated);
+  },
+
+  userUpdated: function(){
+      debugger;
   },
 
   updateEmail: function(e) {

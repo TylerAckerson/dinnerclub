@@ -1,4 +1,13 @@
 var ApiUtil = {
+  fetchCurrentUser: function(){
+    $.ajax({
+      url: 'users/',
+      success: function(current_user){
+        UserActions.receiveCurrentUser(current_user);
+      }
+    });
+  },
+
   newUser: function(userEmail){
     $.ajax({
       url: 'users/',
