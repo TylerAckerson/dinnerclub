@@ -43,39 +43,48 @@ SignIn = React.createClass({
 
 
   render: function(){
-    return (
-      <div>
-      <div className="row text-center top-buffer sign-in">
-        <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-          <h3 className="header">Enter your email:</h3>
-          <form role="form" className="form-inline"
-                            onSubmit={this.handleEmail}>
+    var signIn;
 
-              <div className="form-group">
-                    <input className="form-control email-field"
-                           type="text"
-                           onChange={this.updateEmail}
-                           value={this.state.email}>
-                    </input>
-                    <input className="btn btn-primary"
-                           type="submit"
-                           value="GO"/>
-                  </div>
+    if ( window.CURRENT_USER_ID ){
+      signIn = 
+        <div>
+          <div className="row text-center top-buffer sign-in">
+            <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+              <h3 className="header">You&#39;re logged in as {window.CURRENT_USER_ID}</h3>
+              <form role="form" className="form-inline"
+                                onSubmit={this.handleEmail}>
 
-          </form>
-        </div>
-      </div>
+                  <div className="form-group">
+                        <input className="form-control email-field"
+                               type="text"
+                               onChange={this.updateEmail}
+                               value={this.state.email}>
+                        </input>
+                        <input className="btn btn-primary"
+                               type="submit"
+                               value="GO"/>
+                      </div>
 
-      <div className="row text-center">
+              </form>
+            </div>
+          </div>
+        </div>  
+    } else {
+      signIn = 
+        <div>
+          <div className="row text-center top-buffer sign-in">
+            <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+              <h3 className="header">You&#39;re not logged in.</h3>
+              <div role="form" className="form">
+                <a href="/sign_up" role="button" class="btn btn-info">Sign In </a>
+                <a href="/sign_in" role="button" class="btn btn-info">Sign Up </a>
+              </div>
+            </div>
+          </div>
+        </div>  
+    }
 
-        <div id="sign-up-success" className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 hide">
-          <div className="sign-up-success-border-top"/>
-            <p>You&#39;ve been placed on the waiting list!</p>
-          <div className="sign-up-success-border-bottom"/>
-        </div>
-      </div>
-
-      </div>
-    );
+    
+    return (signIn);
   }
 });
