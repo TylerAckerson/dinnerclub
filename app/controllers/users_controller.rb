@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.waitlisted = true
+    # @user.waitlisted = true
     if @user.save
       redirect_to :root
     else
