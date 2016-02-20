@@ -1,9 +1,9 @@
 (function(root) {
   'use strict';
 
-  var _currentMeal = { main_course: "",
-                       meal_time: "",
-                       attendees: [] };
+  var _currentMeal = {  host_name: "",
+                        meal_location: "",
+                        meal_time: "" };
 
   var MEAL_CHANGE_EVENT = "changeMeal";
 
@@ -16,33 +16,37 @@
       _currentMeal = meal;
     },
 
-    addAttendee: function(attendee){
-      _currentMeal.attendees.push({ email: attendee });
+    // addAttendee: function(attendee){
+    //   _currentMeal.attendees.push({ email: attendee });
+    // },
+
+    // removeAttendee: function(attendee){
+    //   var attendeeIdx = this._findAttendee(attendee);
+
+    //   if (attendeeIdx !== -1) {
+    //     _currentMeal.attendees.splice(attendeeIdx, 1);
+    //   }
+    // },
+
+    // _findAttendee: function(email) {
+    //   var foundIdx = -1;
+    //   this.currentMeal().attendees.forEach(function(attendee, idx) {
+    //     if (email === attendee) { foundIdx = idx; }
+    //   });
+
+    //   return foundIdx;
+    // },
+
+    updateHostName: function(hostName){
+      _currentMeal.host_name = hostName;
+    },    
+
+    updateLocation: function(mealLocation){
+      _currentMeal.meal_location = mealLocation;
     },
 
-    removeAttendee: function(attendee){
-      var attendeeIdx = this._findAttendee(attendee);
-
-      if (attendeeIdx !== -1) {
-        _currentMeal.attendees.splice(attendeeIdx, 1);
-      }
-    },
-
-    _findAttendee: function(email) {
-      var foundIdx = -1;
-      this.currentMeal().attendees.forEach(function(attendee, idx) {
-        if (email === attendee) { foundIdx = idx; }
-      });
-
-      return foundIdx;
-    },
-
-    updateMainCourse: function(course){
-      _currentMeal.main_course = course;
-    },
-
-    updateDateTime: function(datetime) {
-      _currentMeal.meal_time = datetime;
+    updateDateTime: function(mealTime) {
+      _currentMeal.meal_time = mealTime;
     },
 
     addChangeListener: function(callback){
@@ -63,12 +67,16 @@
           root.MealStore.removeAttendee(payload.attendee);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
-        case (MealConstants.MEAL_UPDATE_MAIN_COURSE):
-          root.MealStore.updateMainCourse(payload.course);
+        case (MealConstants.MEAL_UPDATE_HOST_NAME):
+          root.MealStore.updateHostName(payload.hostName);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          break;        
+        case (MealConstants.MEAL_UPDATE_LOCATION):
+          root.MealStore.updateLocation(payload.mealLocation);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
-        case (MealConstants.MEAL_UPDATE_DATE_TIME):
-          root.MealStore.updateDateTime(payload.datetime);
+        case (MealConstants.MEAL_UPDATE_MEAL_TIME):
+          root.MealStore.updateDateTime(payload.mealTime);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
         case (MealConstants.MEAL_RECEIVE):

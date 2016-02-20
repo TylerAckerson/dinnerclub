@@ -11,16 +11,22 @@ var MealActions = {
       attendee: attendee
     });
   },
-  updateMainCourse: function(course){
+  updateHostName: function(hostName){
     AppDispatcher.dispatch({
-      actionType: MealConstants.MEAL_UPDATE_MAIN_COURSE,
-      course: course
+      actionType: MealConstants.MEAL_UPDATE_HOST_NAME,
+      hostName: hostName
     });
   },
-  updateMealTime: function(datetime){
+  updateLocation: function(mealLocation){
     AppDispatcher.dispatch({
-      actionType: MealConstants.MEAL_UPDATE_DATE_TIME,
-      datetime: datetime
+      actionType: MealConstants.MEAL_UPDATE_LOCATION,
+      mealLocation: mealLocation
+    });
+  },
+  updateMealTime: function(mealTime){
+    AppDispatcher.dispatch({
+      actionType: MealConstants.MEAL_UPDATE_MEAL_TIME,
+      mealTime: mealTime
     });
   },
   receiveMeal: function(meal){

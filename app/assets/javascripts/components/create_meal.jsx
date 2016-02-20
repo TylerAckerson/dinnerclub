@@ -8,7 +8,7 @@ CreateMeal = React.createClass({
     return (
       <div className="row text-center top-buffer">
         <form role="form" className="form-inline"
-                          onSubmit={this.createMeal}>
+                          onClick={this.createMeal}>
 
             <div className="form-group">
                   <input className="btn btn-primary create-meal"
