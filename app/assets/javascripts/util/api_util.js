@@ -49,7 +49,7 @@ var ApiUtil = {
 
   addAttendee: function (newAttendee) {
     $.ajax({
-      url: '/attendees/new',
+      url: '/api/attendees/new',
       type: 'POST',
       data: newAttendee,
       success: function (addedAttendee) {

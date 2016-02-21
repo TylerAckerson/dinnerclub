@@ -5,13 +5,8 @@ class Api::MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.owner_id = 1
-
-    # @attendees = params[:meal][:attendees]
-
+    
     if @meal.save
-      # @attendees.each do |attendee|
-      #   Attendee.create(meal_id: @meal.id, user_id: 2)
-      # end
       render :show
     end
   end

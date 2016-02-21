@@ -7,6 +7,9 @@
 #  meal_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  name       :string
+#  phone      :string
+#  status     :string
 #
 
 class Attendee < ActiveRecord::Base

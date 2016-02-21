@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :meals, only: [:create, :update, :show]
+    resources :attendees, only: [:create, :update, :show]
   end
 end

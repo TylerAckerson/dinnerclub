@@ -26,7 +26,9 @@ AddAttendee = React.createClass({
 
     if ( this.validateName(this.state.name) &&
          this.validatePhone(this.state.phone) ) {
-      debugger;
+      var newAttendee = this.state;
+          newAttendee.meal_id = this.props.mealId;
+      ApiUtil.addAttendee(newAttendee)
     } else {
       console.log("empty field(s) - attendee not added")
     }
