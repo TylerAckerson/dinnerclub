@@ -4,10 +4,10 @@ $(function() {
   //   throw new Error(msg);
   // };
 
-  var root = document.getElementById('application');
-  var Router = ReactRouter.Router;
-  var Route = ReactRouter.Route;
-  var IndexRoute = ReactRouter.IndexRoute;
+  var root = document.getElementById('application'),
+      Router = ReactRouter.Router,
+      Route = ReactRouter.Route,
+      IndexRoute = ReactRouter.IndexRoute;
 
   var App = React.createClass({
     render: function(){

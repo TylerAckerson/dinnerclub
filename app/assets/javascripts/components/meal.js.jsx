@@ -6,21 +6,22 @@ Meal = React.createClass({
   render: function(){
     return (
       <div className="container text-center top-buffer">
-        <div className="row">
-          <div className="col-sm-6 col-sm-offset-3 meal">
-            <h3 className="header">Meal</h3>
-            <AddAttendee />
+        <MealBasicInfo header={"Your Meal"} 
+                       updateHostName={this.updateHostName.bind(this)}
+                       updateLocation={this.updateLocation.bind(this)}
+                       updateMealTime={this.updateMealTime.bind(this)}/>
+        <AddAttendee />
 
-            <h3>Attendee list</h3>
-            <table className="table">
-              <div className="row"> {
-                this.dummyMeal().map(function(attendee){
-                  return <Attendee key={attendee.email} attendee={attendee} />;
-                })
-              }
-              </div>
-            </table>
-          </div>
+        <div className="row">
+          <h3>Attendee list</h3>
+          <table className="table">
+            <div className="row"> {
+              this.dummyMeal().map(function(attendee){
+                return <Attendee key={attendee.email} attendee={attendee} />;
+              })
+            }
+            </div>
+          </table>
         </div>
       </div>
     );

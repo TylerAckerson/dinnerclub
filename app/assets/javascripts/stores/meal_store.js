@@ -3,9 +3,10 @@
 
   var _currentMeal = {  host_name: "",
                         meal_location: "",
-                        meal_time: "" };
+                        meal_time: "" },
 
-  var MEAL_CHANGE_EVENT = "changeMeal";
+      MEAL_CHANGE_EVENT = "changeMeal",
+      MEAL_CREATE_EVENT = "createMeal";
 
   root.MealStore = $.extend({}, EventEmitter.prototype, {
     currentMeal: function(){
@@ -55,6 +56,14 @@
 
     removeChangeListener: function(callback){
       this.removeListener(MEAL_CHANGE_EVENT, callback);
+    },    
+
+    addCreateListener: function(callback){
+      this.on(MEAL_CREATE_EVENT, callback);
+    },
+
+    removeCreateListener: function(callback){
+      this.removeListener(MEAL_CREATE_EVENT, callback);
     },
 
     dispatcherID: AppDispatcher.register(function(payload) {
@@ -81,7 +90,7 @@
           break;
         case (MealConstants.MEAL_RECEIVE):
           root.MealStore.receiveMeal(payload.meal);
-          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          root.MealStore.emit(MEAL_CREATE_EVENT);
           break;
         }
       })

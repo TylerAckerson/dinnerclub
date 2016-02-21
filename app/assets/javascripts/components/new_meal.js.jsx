@@ -12,12 +12,23 @@ NewMeal = React.createClass({
     this.setState( MealStore.currentMeal() );
   },
 
+  _receiveMeal: function(){
+    var newMeal = MealStore.currentMeal(),
+        newMealUrl = "/meals/" + newMeal.id;
+
+    // window.history.pushState(null, newMealUrl);
+    window.location.hash = newMealUrl;
+  },
+
   componentDidMount: function() {
     MealStore.addChangeListener(this._updateMeal);
+    MealStore.addCreateListener(this._receiveMeal);
+
   },
 
   componentWillUnmount: function(){
     MealStore.addChangeListener(this._updateMeal);
+    MealStore.removeCreateListener(this._receiveMeal);
   },
 
   updateHostName: function(e) {
@@ -129,30 +140,10 @@ NewMeal = React.createClass({
       <div className="container text-center top-buffer">
         <div className="row">
         <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
-          <div className="row">
-            <div className="col-sm-8 col-sm-offset-2">
-              <h3 className="header"> New Meal </h3>
-              <form>
-                <input className="form-control"
-                       type="text"
-                       placeholder="Your name"
-                       onChange={this.updateHostName}
-                       id="pac-input"/>
-                <input className="form-control"
-                       type="text"
-                       placeholder="Location"
-                       onChange={this.updateLocation}
-                       id="pac-input"/>
-                <input className="form-control"
-                       type="text"
-                       placeholder="Date and time"
-                       onChange={this.updateMealTime}
-                       id="pac-input"/>
-              </form>
-            </div>
-          </div>
-
-
+        <MealBasicInfo header={"New Meal"} 
+                       updateHostName={this.updateHostName.bind(this)}
+                       updateLocation={this.updateLocation.bind(this)}
+                       updateMealTime={this.updateMealTime.bind(this)}/>
           <button className="btn btn-primary create-meal"
             onClick={this.handleNewMeal}>
             Create Meal
