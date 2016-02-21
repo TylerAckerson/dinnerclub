@@ -16,6 +16,14 @@ class Api::MealsController < ApplicationController
     end
   end
 
+  def update
+    @meal = Meal.find(params['meal']['id'])
+
+    if @meal.update(meal_params)
+      render :show
+    end
+  end
+
   private
   def meal_params
     params.require(:meal).permit(:meal_time, :host_name, :meal_location)

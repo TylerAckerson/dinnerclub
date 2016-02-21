@@ -1,38 +1,44 @@
 var MealActions = {
-  addAttendee: function(attendee){
+  addAttendee: function (attendee) {
     AppDispatcher.dispatch({
       actionType: MealConstants.MEAL_ADD_ATTENDEE,
       attendee: attendee
     });
   },
-  removeAttendee: function(attendee){
+  removeAttendee: function (attendee) {
     AppDispatcher.dispatch({
       actionType: MealConstants.MEAL_REMOVE_ATTENDEE,
       attendee: attendee
     });
   },
-  updateHostName: function(hostName){
+  updateHostName: function (hostName) {
     AppDispatcher.dispatch({
       actionType: MealConstants.MEAL_UPDATE_HOST_NAME,
       hostName: hostName
     });
   },
-  updateLocation: function(mealLocation){
+  updateLocation: function (mealLocation) {
     AppDispatcher.dispatch({
       actionType: MealConstants.MEAL_UPDATE_LOCATION,
       mealLocation: mealLocation
     });
   },
-  updateMealTime: function(mealTime){
+  updateMealTime: function (mealTime) {
     AppDispatcher.dispatch({
       actionType: MealConstants.MEAL_UPDATE_MEAL_TIME,
       mealTime: mealTime
     });
   },
-  receiveMeal: function(meal){
+  receiveMeal: function (meal) {
     AppDispatcher.dispatch({
       actionType: MealConstants.MEAL_RECEIVE,
       meal: meal
+    });
+  },
+  updateMeal: function (updatedMeal) {
+    AppDispatcher.dispatch({
+      actionType: MealConstants.MEAL_UPDATE,
+      meal: updatedMeal
     });
   }
 };

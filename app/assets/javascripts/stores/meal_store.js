@@ -91,6 +91,10 @@
         case (MealConstants.MEAL_RECEIVE):
           root.MealStore.receiveMeal(payload.meal);
           root.MealStore.emit(MEAL_CREATE_EVENT);
+          break;      
+        case (MealConstants.MEAL_CHANGE):
+          root.MealStore.receiveMeal(payload.meal);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
         }
       })
