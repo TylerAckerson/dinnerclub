@@ -5,11 +5,11 @@ SignIn = React.createClass({
 
   componentDidMount: function(){
     ApiUtil.fetchCurrentUser();
-    CurrentUserStore.addCurrentUserChangeListener(this.userUpdated);
+    // CurrentUserStore.addCurrentUserChangeListener(this.userUpdated);
   },
 
   componentWillUnmount: function(){
-    CurrentUserStore.removeCurrentUserChangeListener(this.userUpdated);
+    // CurrentUserStore.removeCurrentUserChangeListener(this.userUpdated);
   },
 
   // updateEmail: function(e) {

@@ -1,4 +1,9 @@
 Meal = React.createClass({
+  getInitialState: function () {
+    var meal = MealStore.currentMeal();
+    return {meal: meal};
+  },
+
   dummyMeal: function () {
     return ['tyler@tyler.tyler', 'jeff@jeff.jeff', 'andrew@andrew.andrew'];
   },
@@ -10,10 +15,14 @@ Meal = React.createClass({
   render: function () {
     return (
       <div className="container text-center top-buffer">
-        <MealBasicInfo header={"Your Meal"} button={"Update"} onSubmit={this.updateMeal}/>
-        <AddAttendee />
+        <div className="row meal">
+          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+            <MealBasicInfo header={"Your Meal"} button={"Update"} onSubmit={this.updateMeal}/>
+          </div>
+        </div>
 
-        <div className="row">
+        <div className="row meal">
+          <AddAttendee mealId={this.state.meal.id}/>
           <h3>Attendee list</h3>
           <table className="table">
             <div className="row"> {

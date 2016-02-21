@@ -45,5 +45,19 @@ var ApiUtil = {
         console.log(response);
       }
     });
+  },
+
+  addAttendee: function (newAttendee) {
+    $.ajax({
+      url: '/attendees/new',
+      type: 'POST',
+      data: newAttendee,
+      success: function (addedAttendee) {
+        MealActions.addAttendees(addedAttendee);
+      },
+      failure: function (response){
+        console.log(response);
+      }
+    });
   }
 };

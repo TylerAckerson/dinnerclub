@@ -39,8 +39,8 @@ NewMeal = React.createClass({
                 // <Datetime onChange={this.updateMealTime} />
     return (
       <div className="container text-center top-buffer">
-        <div className="row">
-          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
+        <div className="row meal">
+          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
             <MealBasicInfo header={"New Meal"} button={"Create Meal"} onSubmit={this.handleNewMeal}/>
           </div>
         </div>

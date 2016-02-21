@@ -1,62 +1,76 @@
 AddAttendee = React.createClass({
-  getInitialState: function(){
-    return { email: "" };
+  getInitialState: function () {
+    return { name: "", phone: "" };
   },
 
-  updateEmail: function(e) {
-    e.preventDefault();
-    this.setState( { email: e.currentTarget.value } );
-  },
-
-  addAttendee: function(e){
+  updateName: function (e)  {
     e.preventDefault();
 
-    email = this.state.email;
-    if (this.validateEmail(email)) {
-      this.props.addAttendee(email);
-      this.setState(this.getInitialState());
-    }
+    var newState = this.state;
+    newState.name = e.currentTarget.value;
+
+    this.setState(newState);
   },
 
-  validateEmail: function(email){
-    if ( typeof email === "undefined" || !(this.isEmail(email)) ) {
-      $("#email").addClass("invalid");
-      return false;
+  updatePhone: function (e)  {
+    e.preventDefault();
+
+    var newState = this.state;
+    newState.phone = e.currentTarget.value;
+
+    this.setState(newState);
+  },
+
+  addAttendee: function (e) {
+    e.preventDefault();
+
+    if ( this.validateName(this.state.name) &&
+         this.validatePhone(this.state.phone) ) {
+      debugger;
     } else {
-      $("#email").removeClass("invalid");
-      return true;
+      console.log("empty field(s) - attendee not added")
     }
   },
 
-  isEmail: function(str){
-    var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  validateName: function (name) {
+    if ( name.length ) { return true; }
 
-    if (str.match(pattern)){
-      return str.match(pattern)[0] === str;
-    } else {
-      return false;
-    }
+    return false;
+  },  
+
+  validatePhone: function (phone) {
+    if ( phone.length ) { return true; }
+
+    return false;
   },
 
-  render: function(){
+  render: function () {
+    console.log(this.state);
     return (
       <div className="row">
         <h4>Invite a friend to this meal</h4>
         <div className="col-sm-8 col-sm-offset-2">
-          <form role="form" className="form"
+          <form role="form" className="form form-inline"
                             onSubmit={this.addAttendee}>
 
               <div className="form-group">
                     <input className="form-control"
-                           id="email"
+                           id="name"
                            type="text"
-                           placeholder="Attendee e-mail"
-                           onChange={this.updateEmail}
-                           value={this.state.email}>
+                           placeholder="Name"
+                           onChange={this.updateName}
+                           value={this.state.name}>
+                    </input>                    
+                    <input className="form-control"
+                           id="phone"
+                           type="text"
+                           placeholder="Phone"
+                           onChange={this.updatePhone}
+                           value={this.state.phone}>
                     </input>
                     <input className="btn btn-primary"
                            type="submit"
-                           value="Add"/>
+                           value="Send"/>
                   </div>
 
           </form>
