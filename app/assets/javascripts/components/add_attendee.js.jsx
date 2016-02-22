@@ -49,7 +49,7 @@ AddAttendee = React.createClass({
   render: function () {
     console.log(this.state);
     return (
-      <div className="row">
+      <div className="row element">
         <h4>Invite a friend to this meal</h4>
         <div className="col-sm-8 col-sm-offset-2">
           <form role="form" className="form form-inline"

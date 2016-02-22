@@ -24,6 +24,21 @@ time, mark, audio, video {
 	// color: white;
 }
 
+.container.element {
+	padding: 50px 0;
+
+	&--span-width {
+		width: 100%;
+	}
+
+}
+
+.row.element{	
+	border: 2px solid #137f6e;
+	background: rgba(0, 0, 0, 0.7);
+	padding: 50px 0;
+}
+
 body {
 	background-image: url("https://dl.dropboxusercontent.com/u/4448887/table_background.jpg");
 }
@@ -75,10 +90,6 @@ a.navbar-brand {
 	background: rgba(0, 0, 0, 0.7);
 	padding-top: 50px;
 	padding-bottom: 50px;
-}
-
-.sign-in {
-	margin-top: 50px;
 }
 
 .header {

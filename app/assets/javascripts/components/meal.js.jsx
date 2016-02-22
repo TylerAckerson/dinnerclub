@@ -14,14 +14,17 @@ Meal = React.createClass({
 
   render: function () {
     return (
-      <div className="container text-center top-buffer">
-        <div className="row meal">
+    <div className="wrapper">
+      <div className="container element">
+        <div className="row text-center element">
           <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
             <MealBasicInfo header={"Your Meal"} button={"Update"} onSubmit={this.updateMeal}/>
           </div>
         </div>
+      </div>
 
-        <div className="row meal">
+      <div className="container">
+        <div className="row">
           <AddAttendee mealId={this.state.meal.id}/>
           <h3>Attendee list</h3>
           <table className="table">
@@ -34,6 +37,7 @@ Meal = React.createClass({
           </table>
         </div>
       </div>
+    </div>
     );
   }
 });
