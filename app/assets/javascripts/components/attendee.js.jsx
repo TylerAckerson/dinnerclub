@@ -8,12 +8,13 @@ Attendee = React.createClass({
   },
 
   render: function(){
-    var attendee = this.props.attendee.email;
+    var attendee = this.props.attendee;
 
     return (
       <tr className="row">
-        <td className="col-xs-6 col-xs-offset-2 text-left">{attendee}</td>
-        <td className="col-xs-2">
+        <td className="col-xs-3 text-left">{attendee.name}</td>
+        <td className="col-xs-3">{attendee.phone}</td>
+        <td className="col-xs-3 text-right">
           <button type="submit"
           className="btn btn-default full-width remove"
           onClick={this.removeAttendee}>

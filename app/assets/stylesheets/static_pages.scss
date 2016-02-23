@@ -20,7 +20,7 @@ time, mark, audio, video {
   list-style: none;
 	font-family: "Gotham A","Gotham B",sans-serif;
   font-style: normal;
-	color: black;
+	color: white;
 }
 
 .element {
@@ -56,6 +56,10 @@ body {
 	background-color: rgba(255, 255, 255, 0.7);
 	border: 0;
 	margin-bottom: 0;
+}
+
+.glyphicon.glyphicon-minus {
+	color: black;
 }
 
 a.navbar-brand {

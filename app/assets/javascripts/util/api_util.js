@@ -49,10 +49,11 @@ var ApiUtil = {
 
   addAttendee: function (newAttendee) {
     $.ajax({
-      url: '/api/attendees/new',
+      url: '/api/attendees/',
       type: 'POST',
-      data: newAttendee,
+      data: {attendee: newAttendee},
       success: function (addedAttendee) {
+        debugger;
         MealActions.addAttendees(addedAttendee);
       },
       failure: function (response){

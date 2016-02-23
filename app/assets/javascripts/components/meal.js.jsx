@@ -5,7 +5,20 @@ Meal = React.createClass({
   },
 
   dummyMeal: function () {
-    return ['tyler@tyler.tyler', 'jeff@jeff.jeff', 'andrew@andrew.andrew'];
+    return [
+      {
+        name: "Roo",
+        phone: "732-919-0000"
+      },
+      {
+        name: "Jeff",
+        phone: "888-887-8989"
+      },
+      {
+        name: "Andrew",
+        phone: "313-448-8780"
+      }
+    ];
   },
 
   updateMeal: function (meal) {
@@ -16,7 +29,7 @@ Meal = React.createClass({
     return (
       <div className="container element text-center">
         <div className="row">
-          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+          <div className="col-xs-10 col-xs-offset-1">
             <MealBasicInfo header={"Your Meal"} button={"Update"} onSubmit={this.updateMeal}/>
           </div>
         </div>
@@ -27,7 +40,7 @@ Meal = React.createClass({
           <table className="table">
             <div className="row"> {
               this.dummyMeal().map(function (attendee) {
-                return <Attendee key={attendee.email} attendee={attendee} />;
+                return <Attendee key={attendee.phone} attendee={attendee} />;
               })
             }
             </div>

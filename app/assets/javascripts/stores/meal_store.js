@@ -17,9 +17,9 @@
       _currentMeal = meal;
     },
 
-    // addAttendee: function(attendee){
-    //   _currentMeal.attendees.push({ email: attendee });
-    // },
+    addAttendee: function(attendee){
+      _currentMeal.attendees.push({ email: attendee });
+    },
 
     // removeAttendee: function(attendee){
     //   var attendeeIdx = this._findAttendee(attendee);
@@ -40,7 +40,7 @@
 
     updateHostName: function(hostName){
       _currentMeal.host_name = hostName;
-    },    
+    },
 
     updateLocation: function(mealLocation){
       _currentMeal.meal_location = mealLocation;
@@ -56,7 +56,7 @@
 
     removeChangeListener: function(callback){
       this.removeListener(MEAL_CHANGE_EVENT, callback);
-    },    
+    },
 
     addCreateListener: function(callback){
       this.on(MEAL_CREATE_EVENT, callback);
@@ -79,7 +79,7 @@
         case (MealConstants.MEAL_UPDATE_HOST_NAME):
           root.MealStore.updateHostName(payload.hostName);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
-          break;        
+          break;
         case (MealConstants.MEAL_UPDATE_LOCATION):
           root.MealStore.updateLocation(payload.mealLocation);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
@@ -91,7 +91,7 @@
         case (MealConstants.MEAL_RECEIVE):
           root.MealStore.receiveMeal(payload.meal);
           root.MealStore.emit(MEAL_CREATE_EVENT);
-          break;      
+          break;
         case (MealConstants.MEAL_CHANGE):
           root.MealStore.receiveMeal(payload.meal);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
