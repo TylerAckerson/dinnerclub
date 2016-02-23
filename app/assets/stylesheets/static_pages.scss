@@ -21,11 +21,14 @@ time, mark, audio, video {
 	font-family: "Gotham A","Gotham B",sans-serif;
   font-style: normal;
 	color: black;
-	// color: white;
 }
 
-.container.element {
+.element {
+	margin-top: 50px;
+	margin-bottom: 50px;
 	padding: 50px 0;
+	border: 2px solid #137f6e;
+	background: rgba(0, 0, 0, 0.7);
 
 	&--span-width {
 		width: 100%;
@@ -33,10 +36,9 @@ time, mark, audio, video {
 
 }
 
-.row.element{	
-	border: 2px solid #137f6e;
-	background: rgba(0, 0, 0, 0.7);
-	padding: 50px 0;
+.sub-element {
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 body {
@@ -45,14 +47,13 @@ body {
 
 #application {
   position: absolute;
-	color: white;
 	width: 100%;
 	height: 100%;
 	// background-image: url("https://dl.dropboxusercontent.com/u/4448887/table_background.jpg");
 }
 
 .navbar.navbar-default{
-	background-color: rgba(255, 255, 255, 0.85);
+	background-color: rgba(255, 255, 255, 0.7);
 	border: 0;
 	margin-bottom: 0;
 }

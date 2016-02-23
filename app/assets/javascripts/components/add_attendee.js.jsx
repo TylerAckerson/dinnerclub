@@ -38,7 +38,7 @@ AddAttendee = React.createClass({
     if ( name.length ) { return true; }
 
     return false;
-  },  
+  },
 
   validatePhone: function (phone) {
     if ( phone.length ) { return true; }
@@ -49,7 +49,7 @@ AddAttendee = React.createClass({
   render: function () {
     console.log(this.state);
     return (
-      <div className="row element">
+      <div className="row sub-element">
         <h4>Invite a friend to this meal</h4>
         <div className="col-sm-8 col-sm-offset-2">
           <form role="form" className="form form-inline"
@@ -62,7 +62,7 @@ AddAttendee = React.createClass({
                            placeholder="Name"
                            onChange={this.updateName}
                            value={this.state.name}>
-                    </input>                    
+                    </input>
                     <input className="form-control"
                            id="phone"
                            type="text"

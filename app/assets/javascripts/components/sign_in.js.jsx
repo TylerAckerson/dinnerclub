@@ -33,7 +33,7 @@ SignIn = React.createClass({
         <h3 className="header">You are logged in as {window.CURRENT_USER_PHONE}</h3>
       );
     } else {
-      signIn =
+      signIn = (
         <div className="wrapper">
           <h3 className="header">You are not logged in.</h3>
           <div role="form" className="form">
@@ -41,16 +41,17 @@ SignIn = React.createClass({
             <a href="/sign_in" role="button" class="btn btn-info">Sign Up </a>
           </div>
         </div>
+      );
     }
 
     return (
       <div className="container element element--span-width">
-        <div className="row text-center sign-in">
+        <div className="row text-center">
           <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
             {signIn}
           </div>
         </div>
-      </div>  
+      </div>
     );
   }
 });
