@@ -23,7 +23,6 @@ MealBasicInfo = React.createClass({
   componentDidMount: function () {
     MealStore.addChangeListener(this._updateMeal);
     MealStore.addCreateListener(this._receiveMeal);
-
   },
 
   componentWillUnmount: function () {
@@ -35,7 +34,7 @@ MealBasicInfo = React.createClass({
     e.preventDefault();
 
     MealActions.updateHostName(e.currentTarget.value);
-  },  
+  },
 
   updateLocation: function (e) {
     e.preventDefault();
@@ -95,7 +94,7 @@ MealBasicInfo = React.createClass({
   },
 
   render: function () {
-    console.log(this.state);  
+    console.log(this.state);
     return (
       <div className="row" runValidations={this.runValidations}>
         <div className="col-sm-8 col-sm-offset-2">

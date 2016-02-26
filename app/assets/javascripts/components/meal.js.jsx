@@ -1,30 +1,28 @@
 Meal = React.createClass({
   getInitialState: function () {
-    var meal = MealStore.currentMeal();
-    return {meal: meal};
+    return { attendees: AttendeeStore.attendees() };
   },
 
-  dummyMeal: function () {
-    return [
-      {
-        name: "Roo",
-        phone: "732-919-0000"
-      },
-      {
-        name: "Jeff",
-        phone: "888-887-8989"
-      },
-      {
-        name: "Andrew",
-        phone: "313-448-8780"
-      }
-    ];
+  componentDidMount: function () {
+    AttendeeStore.addAttendeesChangeListener(this._updateAttendees);
+  },
+
+  componentWillUnmount: function () {
+    AttendeeStore.removeAttendeesChangeListener(this.updateAttendees);
+  },
+
+  _updateAttendees: function () {
+    var attendees = AttendeeStore.attendees(),
+        newState = this.state;
+
+    newState.attendees = attendees;
+    this.setState(newState);
   },
 
   updateMeal: function (meal) {
     ApiUtil.updateMeal({meal: meal});
   },
-
+  
   render: function () {
     return (
       <div className="container element text-center">
@@ -35,11 +33,11 @@ Meal = React.createClass({
         </div>
 
         <div className="row">
-          <AddAttendee mealId={this.state.meal.id}/>
+          <AddAttendee/>
           <h3>Attendee list</h3>
           <table className="table">
             <div className="row"> {
-              this.dummyMeal().map(function (attendee) {
+              this.state.attendees.map(function (attendee) {
                 return <Attendee key={attendee.phone} attendee={attendee} />;
               })
             }

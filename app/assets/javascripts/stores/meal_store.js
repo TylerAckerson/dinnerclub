@@ -47,14 +47,6 @@
 
     dispatcherID: AppDispatcher.register(function(payload) {
       switch (payload.actionType) {
-        case (MealConstants.MEAL_ADD_ATTENDEE):
-          root.MealStore.addAttendee(payload.attendee);
-          root.MealStore.emit(MEAL_CHANGE_EVENT);
-          break;
-        case (MealConstants.MEAL_REMOVE_ATTENDEE):
-          root.MealStore.removeAttendee(payload.attendee);
-          root.MealStore.emit(MEAL_CHANGE_EVENT);
-          break;
         case (MealConstants.MEAL_UPDATE_HOST_NAME):
           root.MealStore.updateHostName(payload.hostName);
           root.MealStore.emit(MEAL_CHANGE_EVENT);

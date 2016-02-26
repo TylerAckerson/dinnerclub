@@ -59,5 +59,19 @@ var ApiUtil = {
         console.log(response);
       }
     });
+  },
+
+  remoeAttendee: function (attendeeId) {
+    $.ajax({
+      url: '/api/attendees/' + attendeeId,
+      type: 'POST',
+      data: {attendee: newAttendee},
+      success: function (addedAttendee) {
+        AttendeeActions.addAttendee(addedAttendee);
+      },
+      failure: function (response){
+        console.log(response);
+      }
+    });
   }
 };

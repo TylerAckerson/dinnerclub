@@ -4,7 +4,7 @@
   var _attendees = [],
       CHANGE_EVENT = "change";
 
-  root.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
+  root.AttendeeStore = $.extend({}, EventEmitter.prototype, {
     addAttendeesChangeListener: function (callback) {
       this.on(CHANGE_EVENT, callback);
     },
@@ -18,7 +18,6 @@
     },
 
     addAttendee: function (attendee) {
-      debugger;
       _attendees.push(attendee);
     },
 

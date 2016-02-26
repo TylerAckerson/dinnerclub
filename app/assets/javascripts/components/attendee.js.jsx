@@ -3,7 +3,7 @@ Attendee = React.createClass({
     e.preventDefault();
 
     setTimeout(function() {
-      MealActions.removeAttendee(this.props.attendee);
+      ApiUtil.removeAttendee(this.props.attendee.id);
     }.bind(this), 500 );
   },
 
