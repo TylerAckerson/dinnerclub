@@ -1,0 +1,4 @@
+AttendeeConstants = {
+  ADD_ATTENDEE: "ADD_ATTENDEE",
+  REMOVE_ATTENDEE: "REMOVE_ATTENDEE",
+};

@@ -17,27 +17,6 @@
       _currentMeal = meal;
     },
 
-    addAttendee: function(attendee){
-      _currentMeal.attendees.push({ email: attendee });
-    },
-
-    // removeAttendee: function(attendee){
-    //   var attendeeIdx = this._findAttendee(attendee);
-
-    //   if (attendeeIdx !== -1) {
-    //     _currentMeal.attendees.splice(attendeeIdx, 1);
-    //   }
-    // },
-
-    // _findAttendee: function(email) {
-    //   var foundIdx = -1;
-    //   this.currentMeal().attendees.forEach(function(attendee, idx) {
-    //     if (email === attendee) { foundIdx = idx; }
-    //   });
-
-    //   return foundIdx;
-    // },
-
     updateHostName: function(hostName){
       _currentMeal.host_name = hostName;
     },

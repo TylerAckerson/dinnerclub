@@ -53,8 +53,7 @@ var ApiUtil = {
       type: 'POST',
       data: {attendee: newAttendee},
       success: function (addedAttendee) {
-        debugger;
-        MealActions.addAttendees(addedAttendee);
+        AttendeeActions.addAttendee(addedAttendee);
       },
       failure: function (response){
         console.log(response);
