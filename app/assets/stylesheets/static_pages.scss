@@ -58,8 +58,32 @@ body {
 	margin-bottom: 0;
 }
 
-.glyphicon.glyphicon-minus {
+// .glyphicon.glyphicon-minus, .glyphicon.glyphicon-send {
+// 	color: black;
+// }
+
+.glyphicon.glyphicon-text {
 	color: black;
+	
+	// display: none;
+	visibility: hidden;
+	width: 0;
+	transition: all 0.5s ease;
+}
+
+.glyphicon.glyphicon-minus, .glyphicon.glyphicon-send {
+	color: black;
+}
+
+.remove, .send {
+	
+	&:hover .glyphicon.glyphicon-text {
+		// display: inline;
+		visibility: visible;
+		width: inherit;
+		transition: all 0.5s ease;
+	}
+
 }
 
 a.navbar-brand {

@@ -5,10 +5,10 @@ var AttendeeActions = {
       attendee: attendee
     });
   },
-  removeAttendee: function (attendee) {
+  removeAttendee: function (attendeePhone) {
     AppDispatcher.dispatch({
       actionType: AttendeeConstants.REMOVE_ATTENDEE,
-      attendee: attendee
+      attendeePhone: attendeePhone
     });
   }
 };

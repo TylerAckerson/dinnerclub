@@ -94,7 +94,6 @@ MealBasicInfo = React.createClass({
   },
 
   render: function () {
-    console.log(this.state);
     return (
       <div className="row" runValidations={this.runValidations}>
         <div className="col-sm-8 col-sm-offset-2">

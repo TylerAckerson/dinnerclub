@@ -47,13 +47,13 @@ var ApiUtil = {
     });
   },
 
-  addAttendee: function (newAttendee) {
+  createAttendee: function (newAttendee) {
     $.ajax({
       url: '/api/attendees/',
       type: 'POST',
       data: {attendee: newAttendee},
       success: function (addedAttendee) {
-        AttendeeActions.addAttendee(addedAttendee);
+        // AttendeeActions.addAttendee(addedAttendee);
       },
       failure: function (response){
         console.log(response);
@@ -61,7 +61,7 @@ var ApiUtil = {
     });
   },
 
-  remoeAttendee: function (attendeeId) {
+  updateAttendee: function (attendeeId) {
     $.ajax({
       url: '/api/attendees/' + attendeeId,
       type: 'POST',

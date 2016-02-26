@@ -3,25 +3,40 @@ Attendee = React.createClass({
     e.preventDefault();
 
     setTimeout(function() {
-      ApiUtil.removeAttendee(this.props.attendee.id);
+      AttendeeActions.removeAttendee(this.props.attendee.phone);
     }.bind(this), 500 );
+  },
+
+  sendAttendeeInvite: function (e) {
+    e. preventDefault();
+
+    debugger;
   },
 
   render: function(){
     var attendee = this.props.attendee;
 
     return (
-      <tr className="row">
-        <td className="col-xs-3 text-left">{attendee.name}</td>
-        <td className="col-xs-3">{attendee.phone}</td>
-        <td className="col-xs-3 text-right">
+      <div className="row">
+        <div className="col-xs-offset-3 col-xs-2 text-left">{attendee.name}</div>
+        <div className="col-xs-2">{attendee.phone}</div>
+        <div className="col-xs-1 text-left">
           <button type="submit"
           className="btn btn-default full-width remove"
           onClick={this.removeAttendee}>
+            <span className="glyphicon glyphicon-text">Remove  </span>
             <span className="glyphicon glyphicon-minus"/>
           </button>
-        </td>
-      </tr>
+        </div>        
+        <div className="col-xs-1 text-left">
+          <button type="submit"
+          className="btn btn-default full-width send"
+          onClick={this.sendAttendeeInvite}>
+            <span className="glyphicon glyphicon-text">Send  </span>
+            <span className="glyphicon glyphicon-send"/>
+          </button>
+        </div>
+      </div>
     );
   }
 });

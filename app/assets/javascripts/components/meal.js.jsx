@@ -8,7 +8,7 @@ Meal = React.createClass({
   },
 
   componentWillUnmount: function () {
-    AttendeeStore.removeAttendeesChangeListener(this.updateAttendees);
+    AttendeeStore.removeAttendeesChangeListener(this._updateAttendees);
   },
 
   _updateAttendees: function () {
@@ -18,12 +18,10 @@ Meal = React.createClass({
     newState.attendees = attendees;
     this.setState(newState);
   },
-
-  updateMeal: function (meal) {
-    ApiUtil.updateMeal({meal: meal});
-  },
   
   render: function () {
+    console.log(this.state);
+
     return (
       <div className="container element text-center">
         <div className="row">
@@ -34,16 +32,13 @@ Meal = React.createClass({
 
         <div className="row">
           <AddAttendee/>
-          <h3>Attendee list</h3>
-          <table className="table">
-            <div className="row"> {
-              this.state.attendees.map(function (attendee) {
-                return <Attendee key={attendee.phone} attendee={attendee} />;
-              })
-            }
-            </div>
-          </table>
         </div>
+
+        <h3>Attendee list</h3> {
+            this.state.attendees.map(function (attendee) {
+              return <Attendee key={attendee.phone} attendee={attendee} />;
+            })
+          }
       </div>
     );
   }

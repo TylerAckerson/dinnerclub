@@ -21,18 +21,17 @@
       _attendees.push(attendee);
     },
 
-    removeAttendee: function (attendee){
-      var attendeeIdx = this._findAttendee(attendee);
+    removeAttendee: function (attendeePhone){
+      var attendeeIdx = this._findAttendee(attendeePhone);
 
       if (attendeeIdx !== -1) {
-        _currentMeal.attendees.splice(attendeeIdx, 1);
+        _attendees.splice(attendeeIdx, 1);
       }
     },
 
-    _findAttendee: function(email) {
-      var foundIdx = -1;
-      this.currentMeal().attendees.forEach(function(attendee, idx) {
-        if (email === attendee) { foundIdx = idx; }
+    _findAttendee: function(phone) {
+      return this.attendees().findIndex(function(attendee, idx) {
+        return attendee.phone === phone;
       });
     },
 
@@ -43,7 +42,7 @@
           AttendeeStore.emit(CHANGE_EVENT);
           break;
         case AttendeeConstants.REMOVE_ATTENDEE:
-          root.AttendeeStore.removeAttendee(payload.attendee);
+          root.AttendeeStore.removeAttendee(payload.attendeePhone);
           AttendeeStore.emit(CHANGE_EVENT);
           break;
       }
