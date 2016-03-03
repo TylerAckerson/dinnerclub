@@ -22,17 +22,37 @@
     },
 
     removeAttendee: function (attendeePhone){
-      var attendeeIdx = this._findAttendee(attendeePhone);
+      var attendeeIdx = this._findAttendeeByPhone(attendeePhone);
 
       if (attendeeIdx !== -1) {
         _attendees.splice(attendeeIdx, 1);
       }
     },
 
-    _findAttendee: function(phone) {
+    updateAttendee: function (attendee){
+      var attendeeIdx = this._findAttendee(attendee);
+
+      if (attendeeIdx !== -1) {
+        _attendees[attendeeIdx] = attendee;
+      }
+    },
+
+    _findAttendeeByPhone: function(phone) {
       return this.attendees().findIndex(function(attendee, idx) {
         return attendee.phone === phone;
       });
+    },
+
+    _findAttendee: function(attendee) {
+      return this.attendees().findIndex(function(attendeeToFind, idx) {
+        return AttendeeStore._isSameAttendee(attendee, attendeeToFind);
+      });
+    },
+
+    _isSameAttendee(firstAttendee, secondAttendee){
+      return firstAttendee.name === secondAttendee.name &&
+             firstAttendee.phone === secondAttendee.phone &&
+             firstAttendee.meal_id === secondAttendee.meal_id;
     },
 
     dispatcherId: AppDispatcher.register(function (payload) {
@@ -43,6 +63,10 @@
           break;
         case AttendeeConstants.REMOVE_ATTENDEE:
           root.AttendeeStore.removeAttendee(payload.attendeePhone);
+          AttendeeStore.emit(CHANGE_EVENT);
+          break;        
+        case AttendeeConstants.SEND_ATTENDEE_INVITE:
+          root.AttendeeStore.updateAttendee(payload.attendee);
           AttendeeStore.emit(CHANGE_EVENT);
           break;
       }

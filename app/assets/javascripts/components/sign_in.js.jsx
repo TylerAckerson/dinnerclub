@@ -37,8 +37,8 @@ SignIn = React.createClass({
         <div className="wrapper">
           <h3 className="header">You are not logged in.</h3>
           <div role="form" className="form">
-            <a href="/sign_up" role="button" class="btn btn-info">Sign In </a>
-            <a href="/sign_in" role="button" class="btn btn-info">Sign Up </a>
+            <a href="/sign_up" role="button" className="btn btn-primary">Sign In </a>
+            <a href="/sign_in" role="button" className="btn btn-primary">Sign Up </a>
           </div>
         </div>
       );

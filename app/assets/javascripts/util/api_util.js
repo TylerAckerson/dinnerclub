@@ -47,27 +47,13 @@ var ApiUtil = {
     });
   },
 
-  createAttendee: function (newAttendee) {
+  sendAttendeeInvite: function (attendee) {
     $.ajax({
-      url: '/api/attendees/',
+      url: '/api/attendees',
       type: 'POST',
-      data: {attendee: newAttendee},
-      success: function (addedAttendee) {
-        // AttendeeActions.addAttendee(addedAttendee);
-      },
-      failure: function (response){
-        console.log(response);
-      }
-    });
-  },
-
-  updateAttendee: function (attendeeId) {
-    $.ajax({
-      url: '/api/attendees/' + attendeeId,
-      type: 'POST',
-      data: {attendee: newAttendee},
-      success: function (addedAttendee) {
-        AttendeeActions.addAttendee(addedAttendee);
+      data: {attendee: attendee},
+      success: function (attendee) {
+        AttendeeActions.sendAttendeeInvite(attendee);
       },
       failure: function (response){
         console.log(response);

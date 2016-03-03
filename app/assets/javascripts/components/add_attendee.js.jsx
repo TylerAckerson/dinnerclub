@@ -71,7 +71,7 @@ AddAttendee = React.createClass({
               </input>
               <input className="btn btn-primary"
                      type="submit"
-                     value="Send"/>
+                     value="Add"/>
             </div>
           </form>
         </div>

@@ -14,29 +14,9 @@ NewMeal = React.createClass({
   //   }
   // },
 
-  // addAttendee: function(email) {
-  //   MealActions.addAttendee(email);
-  // },
-
   render: function(){
-    // if (this.state.attendees[0] && this.state.attendees[0].id !== undefined){
-    //   debugger;
-    // }
-          // <h3 className="top-buffer"> Attendees </h3>
-
-          // <AddAttendee addAttendee={this.addAttendee} />
-
-          // <table className="table top-buffer">
-          //   <tbody>
-          //   {
-          //     this.state.attendees.map(function(attendee){
-          //       return <Attendee key={attendee.email} attendee={attendee} />;
-          //     })
-          //   }
-          //   </tbody>
-          // </table>
-
-                // <Datetime onChange={this.updateMealTime} />
+    // <Datetime onChange={this.updateMealTime} />
+    
     return (
       <div className="container text-center top-buffer">
         <div className="row meal">

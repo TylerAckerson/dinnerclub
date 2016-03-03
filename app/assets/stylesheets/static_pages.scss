@@ -64,11 +64,10 @@ body {
 
 .glyphicon.glyphicon-text {
 	color: black;
-	
-	// display: none;
-	visibility: hidden;
-	width: 0;
-	transition: all 0.5s ease;
+	opacity: 0;
+  width: 0;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
 }
 
 .glyphicon.glyphicon-minus, .glyphicon.glyphicon-send {
@@ -78,10 +77,8 @@ body {
 .remove, .send {
 	
 	&:hover .glyphicon.glyphicon-text {
-		// display: inline;
-		visibility: visible;
-		width: inherit;
-		transition: all 0.5s ease;
+		opacity: 1;
+    width: 70px;
 	}
 
 }
