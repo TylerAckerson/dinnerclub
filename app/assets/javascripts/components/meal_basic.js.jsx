@@ -1,6 +1,5 @@
 MealBasicInfo = React.createClass({
   getInitialState: function () {
-
     return {
       host_name: "",
       meal_location: "",
@@ -32,23 +31,16 @@ MealBasicInfo = React.createClass({
 
   updateHostName: function (e) {
     e.preventDefault();
-
     MealActions.updateHostName(e.currentTarget.value);
   },
 
   updateLocation: function (e) {
     e.preventDefault();
-
     MealActions.updateLocation(e.currentTarget.value);
   },
 
   updateMealTime: function (e) {
-    e.preventDefault;
-    // var datetime;
-
-    // if (e._isAMomentObject === true) {
-    //   datetime = e.toDate();
-    // }
+    e.preventDefault();
     MealActions.updateMealTime(e.currentTarget.value);
   },
 
@@ -57,45 +49,53 @@ MealBasicInfo = React.createClass({
     mealLocation = this.validateLocation(this.state.meal_location);
     mealTime = this.validateDateTime(this.state.meal_time);
 
-    return (hostName && mealLocation && mealTime);
+    return ( hostName && mealLocation && mealTime );
   },
 
   validateHostName: function (hostName) {
-    if ( hostName.length ){
-      return true
+    if ( MealConstants.STRING_REGEXP.test(hostName) ) {
+      $("#host-name").removeClass("invalid");
+      return true;
     } else {
-      return false
+      $("#host-name").addClass("invalid");
+      return false;
     }
   },
 
   validateLocation: function (mealLocation) {
-    if ( typeof mealLocation === "undefined" || mealLocation.length < 3 ) {
-      $("#pac-input").addClass("invalid");
-      return false;
-    } else {
-      $("#pac-input").removeClass("invalid");
+    if ( MealConstants.STRING_REGEXP.test(mealLocation) ) {
+      $("#location").removeClass("invalid");
       return true;
+    } else {
+      $("#location").addClass("invalid");
+      return false;
     }
   },
 
-  validateDateTime: function (date_time) {
-    if ( typeof date_time === "undefined" || date_time.length === 0 ) {
-      $(".rdt input.form-control").addClass("invalid");
-      return false;
-    } else {
-      $(".rdt input.form-control").removeClass("invalid");
+  validateDateTime: function (dateTime) {
+    if ( MealConstants.STRING_REGEXP.test(dateTime) ) {
+      $("#date-time").removeClass("invalid");
       return true;
+    } else {
+      $("#date-time").addClass("invalid");
+      return false;
     }
   },
 
   handleSubmit: function (e) {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+
+    if ( this.runValidations() ) {
+      this.props.onSubmit(this.state);
+      return true;
+    }
+
+    e.stopPropagation();
   },
 
   render: function () {
     return (
-      <div className="row" runValidations={this.runValidations}>
+      <div className="row">
         <div className="col-sm-8 col-sm-offset-2">
           <h3 className="header">{this.props.header}</h3>
           <form>
@@ -103,17 +103,17 @@ MealBasicInfo = React.createClass({
                    type="text"
                    placeholder="Your name"
                    onChange={this.updateHostName}
-                   id="pac-input"/>
+                   id="host-name"/>
             <input className="form-control"
                    type="text"
                    placeholder="Location"
                    onChange={this.updateLocation}
-                   id="pac-input"/>
+                   id="location"/>
             <input className="form-control"
                    type="text"
                    placeholder="Date and time"
                    onChange={this.updateMealTime}
-                   id="pac-input"/>
+                   id="date-time"/>
           </form>
           <button className="btn btn-primary create-meal"
             onClick={this.handleSubmit}>

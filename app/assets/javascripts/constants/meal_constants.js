@@ -4,4 +4,5 @@ MealConstants = {
   MEAL_UPDATE_MEAL_TIME: "MEAL_UPDATE_MEAL_TIME",
   MEAL_RECEIVE: "MEAL_RECEIVE",
   MEAL_UPDATE: "MEAL_UPDATE",
+  STRING_REGEXP: /^(?=.*[A-Z0-9])[\w.,!"'\/$ ]+$/i,
 };

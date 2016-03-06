@@ -14,7 +14,6 @@ $(function() {
       return (
         <div>
           <div id="container">
-            <SignIn />
             {this.props.children}
           </div>
         </div>

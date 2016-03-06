@@ -71,16 +71,27 @@ body {
 }
 
 .glyphicon.glyphicon-minus, .glyphicon.glyphicon-send {
-	color: black;
+	color: green;
+}
+.glyphicon.glyphicon-minus {
+	color: red;
 }
 
 .remove, .send {
-	
+
 	&:hover .glyphicon.glyphicon-text {
 		opacity: 1;
     width: 70px;
 	}
 
+}
+
+button.btn.btn-default.send {
+	border-color: green;
+}
+
+button.btn.btn-default.remove {
+	border-color: red;
 }
 
 a.navbar-brand {
