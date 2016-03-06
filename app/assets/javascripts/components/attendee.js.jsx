@@ -4,12 +4,12 @@ Attendee = React.createClass({
 
     setTimeout(function() {
       AttendeeActions.removeAttendee(this.props.attendee.phone);
-    }.bind(this), 500 );
+    }.bind(this), 500);
   },
 
   sendInvite: function (e) {
     e.preventDefault();
-    
+
     var attendee = this.props.attendee;
         attendee.meal_id = MealStore.currentMeal().id;
 
@@ -21,7 +21,7 @@ Attendee = React.createClass({
         buttons;
 
     if (attendee.status === 'invited') {
-      buttons = <div className="col-xs-2 text-left">Pending</div>
+      buttons = <div className="col-xs-2 text-left">Pending</div>;
     } else {
       buttons =
         <div className="col-xs-2 text-left">
@@ -41,14 +41,14 @@ Attendee = React.createClass({
               <span className="glyphicon glyphicon-send"/>
             </button>
           </div>
-        </div>
+        </div>;
   }
 
     return (
       <div className="row text-center">
         <div className="col-xs-offset-3 col-xs-2">{attendee.name}</div>
         <div className="col-xs-2">{attendee.phone}</div>
-        {buttons}  
+        {buttons}
       </div>
     );
   }

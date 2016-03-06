@@ -19,27 +19,34 @@ Meal = React.createClass({
     this.setState(newState);
   },
 
-  removeAttendee: function (attendee) {
-    debugger;
+  sendAllInvites: function () {
+    this.state.attendees.forEach(function (attendee, idx) {
+      if (typeof attendee.status === 'undefined') {
+        this.sendInvite(attendee);
+      }
+    }.bind(this));
   },
 
   sendInvite: function (attendee) {
-    debugger;
+    attendee.meal_id = MealStore.currentMeal().id;
+    ApiUtil.sendAttendeeInvite(attendee);
   },
 
-  sendAllInvites: function () {
-    debugger;
-  },
-  
   render: function () {
     var inviteCount = this.state.attendees.filter(function (attendee) {
-      return !attendee.status;
+      return (typeof attendee.status === 'undefined');
     }).length;
 
     var invitePlural = (inviteCount === 1 ? "invite" : "invites");
 
+    if (inviteCount) {
+      $('#invite-all').removeClass('hidden');
+    } else {
+      $('#invite-all').addClass('hidden');
+    }
+
     console.log(this.state.attendees);
-    
+
     return (
       <div className="container element text-center">
         <div className="row">
@@ -60,7 +67,7 @@ Meal = React.createClass({
 
         <div className="row top-buffer">
           <div className="col-xs-4 col-xs-offset-4">
-            <button className="btn btn-primary create-meal"
+            <button id='invite-all' className="btn btn-primary create-meal hidden"
                     onClick={this.sendAllInvites}>
                     Send {inviteCount} {invitePlural}
             </button>
