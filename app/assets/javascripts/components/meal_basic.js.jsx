@@ -1,10 +1,6 @@
 MealBasicInfo = React.createClass({
   getInitialState: function () {
-    return {
-      host_name: "",
-      meal_location: "",
-      meal_time: "",
-    };
+    return MealStore.currentMeal();
   },
 
   _updateMeal: function () {
@@ -15,7 +11,7 @@ MealBasicInfo = React.createClass({
     var newMeal = MealStore.currentMeal(),
         newMealUrl = "/meals/" + newMeal.id;
 
-    // window.history.pushState(null, newMealUrl);
+    // window.history.pushState(newMeal, null, newMealUrl);
     window.location.hash = newMealUrl;
   },
 
@@ -93,7 +89,13 @@ MealBasicInfo = React.createClass({
     e.stopPropagation();
   },
 
+  updateMeal: function (meal) {
+    ApiUtil.updateMeal({ meal: meal });
+  },
+
   render: function () {
+    console.log(this.state);
+
     return (
       <div className="row">
         <div className="col-sm-8 col-sm-offset-2">
@@ -103,19 +105,22 @@ MealBasicInfo = React.createClass({
                    type="text"
                    placeholder="Your name"
                    onChange={this.updateHostName}
+                   value={this.state.host_name}
                    id="host-name"/>
             <input className="form-control"
                    type="text"
                    placeholder="Location"
                    onChange={this.updateLocation}
+                   value={this.state.meal_location}
                    id="location"/>
             <input className="form-control"
                    type="text"
                    placeholder="Date and time"
                    onChange={this.updateMealTime}
+                   value={this.state.meal_time}
                    id="date-time"/>
           </form>
-          <button className="btn btn-primary create-meal"
+          <button className="btn btn-primary create-meal top-buffer"
             onClick={this.handleSubmit}>
             {this.props.button}
           </button>

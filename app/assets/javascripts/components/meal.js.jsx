@@ -45,25 +45,31 @@ Meal = React.createClass({
       $('#invite-all').addClass('hidden');
     }
 
-    console.log(this.state.attendees);
-
     return (
-      <div className="container element text-center">
+
+      <div className="container text-center top-buffer">
+
         <div className="row">
-          <div className="col-xs-10 col-xs-offset-1">
-            <MealBasicInfo header={"Your Meal"} button={"Update"} onSubmit={this.updateMeal}/>
+          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
+            <MealBasicInfo header={"Your Dinner"} button={"Update"} onSubmit={MealBasicInfo.prototype.updateMeal}/>
           </div>
         </div>
 
-        <div className="row">
-          <AddAttendee/>
+        <div className="row top-buffer">
+          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
+            <AddAttendee/>
+          </div>
         </div>
 
-        <h3>Attendee list</h3> {
-          this.state.attendees.map(function (attendee) {
-            return <Attendee key={attendee.phone} attendee={attendee}/>;
-          })
-        }
+        <div className="row top-buffer">
+          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
+          <h3>Attendee list</h3> {
+            this.state.attendees.map(function (attendee) {
+              return <Attendee key={attendee.phone} attendee={attendee}/>;
+            })
+          }
+          </div>
+        </div>
 
         <div className="row top-buffer">
           <div className="col-xs-4 col-xs-offset-4">

@@ -49,32 +49,30 @@ AddAttendee = React.createClass({
 
   render: function () {
     return (
-      <div className="row sub-element">
+      <div className="row">
         <h4>Invite a friend to this meal</h4>
-        <div classNam="col-xs-10 col-xs-offset-1">
-          <form role="form" className="form form-inline"
-                            onSubmit={this.addAttendee}>
-            <div className="form-group">
-              <input className="form-control"
-                     id="name"
-                     type="text"
-                     placeholder="Name"
-                     onChange={this.updateName}
-                     value={this.state.name}>
-              </input>
-              <input className="form-control"
-                     id="phone"
-                     type="text"
-                     placeholder="Phone"
-                     onChange={this.updatePhone}
-                     value={this.state.phone}>
-              </input>
-              <input className="btn btn-primary"
-                     type="submit"
-                     value="Add"/>
-            </div>
-          </form>
-        </div>
+        <form role="form" className="form form-inline"
+                          onSubmit={this.addAttendee}>
+          <div className="form-group">
+            <input className="form-control"
+                   id="name"
+                   type="text"
+                   placeholder="Name"
+                   onChange={this.updateName}
+                   value={this.state.name}>
+            </input>
+            <input className="form-control"
+                   id="phone"
+                   type="text"
+                   placeholder="Phone"
+                   onChange={this.updatePhone}
+                   value={this.state.phone}>
+            </input>
+            <input className="btn btn-primary"
+                   type="submit"
+                   value="Add"/>
+          </div>
+        </form>
       </div>
     );
   }

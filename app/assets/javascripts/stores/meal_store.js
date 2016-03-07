@@ -67,6 +67,10 @@
           root.MealStore.receiveMeal(payload.meal);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
+        case (MealConstants.MEAL_UPDATE):
+          root.MealStore.receiveMeal(payload.meal);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          break;
         }
       })
   });

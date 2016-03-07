@@ -13,7 +13,7 @@ CreateMeal = React.createClass({
             <div className="form-group">
                   <input className="btn btn-primary create-meal"
                          type="submit"
-                         value="Create a Meal"/>
+                         value="Plan a Dinner"/>
             </div>
           </form>
         </div>
