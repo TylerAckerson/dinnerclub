@@ -45,6 +45,10 @@ Meal = React.createClass({
       $('#invite-all').addClass('hidden');
     }
 
+    if (this.state.attendees.length) {
+      $('#attendee-list').removeClass('hidden');
+    }
+
     return (
 
       <div className="container text-center top-buffer">
@@ -61,7 +65,7 @@ Meal = React.createClass({
           </div>
         </div>
 
-        <div className="row top-buffer">
+        <div id="attendee-list" className="row top-buffer hidden">
           <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal attendee-list">
           <h3>Attendee list</h3> {
             this.state.attendees.map(function (attendee) {

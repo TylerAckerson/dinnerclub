@@ -14,7 +14,7 @@ Navbar = React.createClass({
 
         <div className="navbar-header" id="header-logo">
           <a className="navbar-brand" href="/">
-            <img src="dinner_club.jpg"
+            <img src="dinner_club.svg"
                  className="img" width="120" height="50"/>
           </a>
         </div>

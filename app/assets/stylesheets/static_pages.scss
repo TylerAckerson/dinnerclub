@@ -23,6 +23,23 @@ time, mark, audio, video {
 	color: white;
 }
 
+@mixin vertical-align () {
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+
+}
+
+#attendee-list.hidden {
+  display: none !important;
+
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all 1s ease;
+  // transition: visibility 0s, opacity 3s linear;
+}
+
 .element {
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -138,25 +155,6 @@ a.navbar-brand {
 	margin-top: 0;
 }
 
-// #sign-up-success.row.hide {
-// 	visibility: hidden;
-// 	height: 0;
-// 	opacity: 0;
-// }
-
-// #sign-up-success > p {
-// 	margin: 5px 0;
-// 	color: #137f6e;
-// }
-
-// #sign-up-success {
-// 	// border: 2px solid white;
-// 	// border-radius: 5px;
-// 	visibility: visible;
-// 	margin-top: -43px;
-// 	position: absolute;
-// }
-
 .meal .btn.btn-default.remove {
 	border: 0;
 	background-color: inherit;
@@ -179,8 +177,10 @@ a.navbar-brand {
 	width: 75%;
 }
 
-.attendee-list {
-	padding-top: 0;
+#attendee-list > .attendee-list {
+	padding: 0 40px 30px;
+	visibility: visible;
+	opacity: 1;
 }
 
 .attendee {
@@ -191,4 +191,13 @@ a.navbar-brand {
 
 .attendee:last-child {
 	border-bottom: 1px solid white;
+}
+
+.attendee-detail {
+	height: 67px;
+}
+
+.attendee-detail div {
+	@include vertical-align();
+	font-size: 16px;
 }

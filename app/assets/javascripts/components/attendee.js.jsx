@@ -21,7 +21,9 @@ Attendee = React.createClass({
         buttons;
 
     if (attendee.status === 'invited') {
-      buttons = <div className="col-xs-4 text-left">Pending</div>;
+      buttons = <div className="col-xs-4 text-left attendee-detail">
+                  <div>Pending</div>
+                </div>;
     } else {
       buttons =
         <div className="col-xs-4 text-left">
@@ -46,8 +48,15 @@ Attendee = React.createClass({
 
     return (
       <div className="row text-center attendee">
-        <div className="col-xs-offset-1 col-xs-3">{attendee.name}</div>
-        <div className="col-xs-4">{attendee.phone}</div>
+        <div className="col-xs-offset-1 col-xs-3 attendee-detail">
+          <div>
+            {attendee.name}
+          </div>
+        </div>
+        <div className="col-xs-4 attendee-detail">
+          <div>
+            {attendee.phone}</div>
+          </div>
         {buttons}
       </div>
     );
