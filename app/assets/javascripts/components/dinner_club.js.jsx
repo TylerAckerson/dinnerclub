@@ -24,8 +24,7 @@ $(function() {
   var routes = (
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute component={CreateMeal}/>
-        <Route path="/meals/new" component={NewMeal} />
+        <IndexRoute component={NewMeal} />
         <Route path="/meals/:mealId" component={Meal} />
       </Route>
     </Router>

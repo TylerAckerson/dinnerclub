@@ -21,13 +21,13 @@ Attendee = React.createClass({
         buttons;
 
     if (attendee.status === 'invited') {
-      buttons = <div className="col-xs-2 text-left">Pending</div>;
+      buttons = <div className="col-xs-4 text-left">Pending</div>;
     } else {
       buttons =
-        <div className="col-xs-2 text-left">
+        <div className="col-xs-4 text-left">
           <div className="row text-left">
             <button type="submit"
-            className="btn btn-default full-width remove"
+            className="btn btn-primary full-width remove"
             onClick={this.removeAttendee}>
               <span className="glyphicon glyphicon-text">Remove  </span>
               <span className="glyphicon glyphicon-minus"/>
@@ -35,7 +35,7 @@ Attendee = React.createClass({
           </div>
           <div className="row text-left">
             <button type="submit"
-            className="btn btn-default full-width send"
+            className="btn btn-primary full-width send"
             onClick={this.sendInvite}>
               <span className="glyphicon glyphicon-text">Send  </span>
               <span className="glyphicon glyphicon-send"/>
@@ -45,9 +45,9 @@ Attendee = React.createClass({
   }
 
     return (
-      <div className="row text-center">
-        <div className="col-xs-offset-3 col-xs-2">{attendee.name}</div>
-        <div className="col-xs-2">{attendee.phone}</div>
+      <div className="row text-center attendee">
+        <div className="col-xs-offset-1 col-xs-3">{attendee.name}</div>
+        <div className="col-xs-4">{attendee.phone}</div>
         {buttons}
       </div>
     );

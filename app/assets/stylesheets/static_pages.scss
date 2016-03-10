@@ -42,7 +42,9 @@ time, mark, audio, video {
 }
 
 body {
-	background-image: url("https://dl.dropboxusercontent.com/u/4448887/table_background.jpg");
+	background: image-url("place_settings.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 #application {
@@ -53,28 +55,40 @@ body {
 }
 
 .navbar.navbar-default{
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(0, 0, 0, 0.5);
 	border: 0;
 	margin-bottom: 0;
 }
 
-// .glyphicon.glyphicon-minus, .glyphicon.glyphicon-send {
-// 	color: black;
-// }
-
 .glyphicon.glyphicon-text {
-	color: black;
+	color: white;
+	font-weight: 400;
 	opacity: 0;
   width: 0;
   transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
 }
 
-.glyphicon.glyphicon-minus, .glyphicon.glyphicon-send {
-	color: green;
+span.glyphicon-send::before {
+	content: "\e171";
+	transition: all 1s ease;
 }
-.glyphicon.glyphicon-minus {
+
+span.glyphicon-minus::before {
+	content: "\e014";
+	transition: all 1s ease;
+}
+
+.remove:hover > span.glyphicon-minus::before {
 	color: red;
+	content: "\2212";
+	transition: all 1s ease;
+}
+
+.send:hover > span.glyphicon-send::before {
+	color: lightgreen;
+	content: "\e127";
+	transition: all 1s ease;
 }
 
 .remove, .send {
@@ -84,14 +98,6 @@ body {
     width: 70px;
 	}
 
-}
-
-button.btn.btn-default.send {
-	border-color: green;
-}
-
-button.btn.btn-default.remove {
-	border-color: red;
 }
 
 a.navbar-brand {
@@ -125,8 +131,6 @@ a.navbar-brand {
   border: 2px solid #137f6e;
   padding: 30px;
 	background: rgba(0, 0, 0, 0.7);
-	padding-top: 50px;
-	padding-bottom: 50px;
 }
 
 .header {
@@ -160,18 +164,6 @@ a.navbar-brand {
 	padding: 0;
 }
 
-.meal .remove > span::before {
-	border: 0;
-  content: "\e014";
-	color: #6A7781;
-	transition: all 1s ease;
-}
-
-.meal .remove:hover > span::before {
-	color: red;
-	content: "\2212";
-}
-
 .btn.btn-primary.create-meal {
 	font-size: 20px;
 	border-width: 2px;
@@ -187,20 +179,16 @@ a.navbar-brand {
 	width: 75%;
 }
 
-table tr:last-child > td[class*="col-"], table th[class*="col-"] {
-	border-bottom: 1px solid #ddd;
+.attendee-list {
+	padding-top: 0;
 }
 
-div.rdtPicker {
-	position: absolute;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.9);
+.attendee {
+	border-top: 1px solid white;;
+	margin: 0 20px;
+	padding: 15px 0;
 }
 
-// .rdtPicker td.active {
-// 	background-color: #137f6e;
-// }
-
-.rdtDays * {
-	color: black;
+.attendee:last-child {
+	border-bottom: 1px solid white;
 }

@@ -62,7 +62,7 @@ Meal = React.createClass({
         </div>
 
         <div className="row top-buffer">
-          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
+          <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal attendee-list">
           <h3>Attendee list</h3> {
             this.state.attendees.map(function (attendee) {
               return <Attendee key={attendee.phone} attendee={attendee}/>;
