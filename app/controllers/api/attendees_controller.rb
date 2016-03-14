@@ -11,10 +11,7 @@ class Api::AttendeesController < ApplicationController
       render :show
     end
   end
-
-  def update
-  end
-
+  
 	private
   def attendee_params
     params.require(:attendee).permit(:name, :phone, :meal_id, :status)

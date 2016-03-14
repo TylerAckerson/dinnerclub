@@ -30,6 +30,11 @@ MealBasicInfo = React.createClass({
     MealActions.updateHostName(e.currentTarget.value);
   },
 
+  updateHostNumber: function (e) {
+    e.preventDefault();
+    MealActions.updateHostNumber(e.currentTarget.value);
+  },
+
   updateLocation: function (e) {
     e.preventDefault();
     MealActions.updateLocation(e.currentTarget.value);
@@ -42,10 +47,11 @@ MealBasicInfo = React.createClass({
 
   runValidations: function () {
     hostName = this.validateHostName(this.state.host_name);
+    hostNumber = this.validateHostNumber(this.state.host_number);
     mealLocation = this.validateLocation(this.state.meal_location);
     mealTime = this.validateDateTime(this.state.meal_time);
 
-    return ( hostName && mealLocation && mealTime );
+    return ( hostName && hostNumber && mealLocation && mealTime );
   },
 
   validateHostName: function (hostName) {
@@ -54,6 +60,19 @@ MealBasicInfo = React.createClass({
       return true;
     } else {
       $("#host-name").addClass("invalid");
+      return false;
+    }
+  },
+
+  validateHostNumber: function (hostNumber) {
+
+    number_regexp = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+
+    if ( number_regexp.test(hostNumber) ) {
+      $("#host-number").removeClass("invalid");
+      return true;
+    } else {
+      $("#host-number").addClass("invalid");
       return false;
     }
   },
@@ -107,6 +126,12 @@ MealBasicInfo = React.createClass({
                    onChange={this.updateHostName}
                    value={this.state.host_name}
                    id="host-name"/>
+            <input className="form-control"
+                   type="text"
+                   placeholder="Your phone number"
+                   onChange={this.updateHostNumber}
+                   value={this.state.host_number}
+                   id="host-number"/>
             <input className="form-control"
                    type="text"
                    placeholder="Location"

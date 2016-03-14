@@ -61,14 +61,35 @@ time, mark, audio, video {
 body {
 	background: image-url("place_settings.jpg");
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 }
 
 #application {
   position: absolute;
 	width: 100%;
 	height: 100%;
-	// background-image: url("https://dl.dropboxusercontent.com/u/4448887/table_background.jpg");
+
+	.btn.btn-primary {
+		border-radius: 0;
+		color: #fff;
+		background-color: #137f6e;
+		border-color: darkslategray;
+	}
+
+	.btn.btn-primary:active, .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active:focus  {
+		background-color: darkslategray;
+		border-color: #137f6e;
+	}
+
+	.btn.btn-primary {
+		color: #fff;
+		background-color: #137f6e;
+		border-color: darkslategray;
+	}
+
+	.form-control {
+		border-radius: 0;
+	}
 }
 
 .navbar.navbar-default{
@@ -127,23 +148,6 @@ a.navbar-brand {
 	margin-top: 30px;
 }
 
-.btn.btn-primary {
-	color: #fff;
-	background-color: #137f6e;
-	border-color: darkslategray;
-}
-
-.btn.btn-primary:active, .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active:focus  {
-	background-color: darkslategray;
-	border-color: #137f6e;
-}
-
-.btn.btn-primary {
-	color: #fff;
-	background-color: #137f6e;
-	border-color: darkslategray;
-}
-
 .sign-in, .meal {
   border: 2px solid #137f6e;
   padding: 30px;
@@ -166,6 +170,8 @@ a.navbar-brand {
 	font-size: 20px;
 	border-width: 2px;
 }
+
+
 
 .form-control.invalid {
 	border: 1px solid maroon;

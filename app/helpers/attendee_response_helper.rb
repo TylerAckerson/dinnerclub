@@ -1,0 +1,2 @@
+module AttendeeResponseHelper
+end

@@ -17,6 +17,12 @@ var MealActions = {
       hostName: hostName
     });
   },
+  updateHostNumber: function (hostNumber) {
+    AppDispatcher.dispatch({
+      actionType: MealConstants.MEAL_UPDATE_HOST_NUMBER,
+      hostNumber: hostNumber
+    });
+  },
   updateLocation: function (mealLocation) {
     AppDispatcher.dispatch({
       actionType: MealConstants.MEAL_UPDATE_LOCATION,

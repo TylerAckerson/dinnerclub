@@ -9,6 +9,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  meal_location :string
+#  host_number   :string
 #
 
 class Meal < ActiveRecord::Base
@@ -24,4 +25,10 @@ class Meal < ActiveRecord::Base
   has_many :users,
     through: :attendees,
     source: :user
+
+  def update_attendee_yes(meal_id, attendee_id)
+  end
+
+  def update_attendee_no(meal_id, attendee_id)
+  end
 end

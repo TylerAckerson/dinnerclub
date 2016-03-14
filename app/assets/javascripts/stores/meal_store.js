@@ -1,12 +1,15 @@
 (function(root) {
   'use strict';
 
-  var _currentMeal = {  host_name: "",
-                        meal_location: "",
-                        meal_time: "" },
+  var _currentMeal = {
+    host_name: "",
+    host_number: "",
+    meal_location: "",
+    meal_time: "" 
+  },
 
-      MEAL_CHANGE_EVENT = "changeMeal",
-      MEAL_CREATE_EVENT = "createMeal";
+  MEAL_CHANGE_EVENT = "changeMeal",
+  MEAL_CREATE_EVENT = "createMeal";
 
   root.MealStore = $.extend({}, EventEmitter.prototype, {
     currentMeal: function(){
@@ -19,6 +22,10 @@
 
     updateHostName: function(hostName){
       _currentMeal.host_name = hostName;
+    },
+
+    updateHostNumber: function(hostNumber){
+      _currentMeal.host_number = hostNumber;
     },
 
     updateLocation: function(mealLocation){
@@ -49,6 +56,10 @@
       switch (payload.actionType) {
         case (MealConstants.MEAL_UPDATE_HOST_NAME):
           root.MealStore.updateHostName(payload.hostName);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          break;
+        case (MealConstants.MEAL_UPDATE_HOST_NUMBER):
+          root.MealStore.updateHostNumber(payload.hostNumber);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
         case (MealConstants.MEAL_UPDATE_LOCATION):
