@@ -74,6 +74,10 @@ body {
 		color: #fff;
 		background-color: #137f6e;
 		border-color: darkslategray;
+
+		border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin: 0 15px;
 	}
 
 	.btn.btn-primary:active, .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active:focus  {
@@ -81,15 +85,15 @@ body {
 		border-color: #137f6e;
 	}
 
-	.btn.btn-primary {
-		color: #fff;
-		background-color: #137f6e;
-		border-color: darkslategray;
-	}
+	// .btn.btn-primary {
+	// 	color: #fff;
+	// 	background-color: #137f6e;
+	// 	border-color: darkslategray;
+	// }
 
-	.form-control {
-		border-radius: 0;
-	}
+	// .form-control {
+	// 	border-radius: 0;
+	// }
 }
 
 .navbar.navbar-default{
@@ -128,6 +132,12 @@ span.glyphicon-minus::before {
 	content: "\e127";
 	transition: all 1s ease;
 }
+
+// .add:hover > span.glyphicon-send::before {
+// 	color: lightgreen;
+// 	content: "\e127";
+// 	transition: all 1s ease;
+// }
 
 .remove, .send {
 

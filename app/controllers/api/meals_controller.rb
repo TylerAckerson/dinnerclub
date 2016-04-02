@@ -15,11 +15,11 @@ class Api::MealsController < ApplicationController
     @meal.owner_id = 1
     
     if @meal.save
-      @client.messages.create(
-        :from => @account_num, 
-        :to => @meal.host_number, 
-        :body => "Your meal was created: #{@meal.meal_time} at #{@meal.meal_location}."
-      )
+      # @client.messages.create(
+      #   :from => @account_num, 
+      #   :to => @meal.host_number, 
+      #   :body => "Your meal was created: #{@meal.meal_time} at #{@meal.meal_location}."
+      # )
 
       render :show
     end

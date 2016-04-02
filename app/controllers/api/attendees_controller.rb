@@ -4,7 +4,7 @@ class Api::AttendeesController < ApplicationController
 
   def create
     @attendee = Attendee.new(attendee_params)
-    @attendee.status = 'invited'
+    # @attendee.status = 'invited'
 
     if @attendee.save
       # twilio stuff to send the invite

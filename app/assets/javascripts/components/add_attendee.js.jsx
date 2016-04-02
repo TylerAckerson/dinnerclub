@@ -68,9 +68,9 @@ AddAttendee = React.createClass({
                    onChange={this.updatePhone}
                    value={this.state.phone}>
             </input>
-            <input className="btn btn-primary"
-                   type="submit"
-                   value="Add"/>
+            <button className="btn btn-primary add" type="submit" value="Add">
+              <span>Add</span>
+            </button>
           </div>
         </form>
       </div>
