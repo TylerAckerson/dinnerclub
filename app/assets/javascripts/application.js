@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require bootstrap
+//= require selectize
 //= require flux
 //= require eventemitter
 //= require react

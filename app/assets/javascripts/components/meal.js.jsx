@@ -55,7 +55,7 @@ Meal = React.createClass({
 
         <div className="row">
           <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 meal">
-            <MealBasicInfo header={"Your Dinner"} button={"Update"} onSubmit={MealBasicInfo.prototype.updateMeal}/>
+            <MealBasicInfo header={"Your Activity"} button={"Update"} onSubmit={MealBasicInfo.prototype.updateMeal}/>
           </div>
         </div>
 

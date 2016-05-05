@@ -4,8 +4,9 @@
   var _currentMeal = {
     host_name: "",
     host_number: "",
+    activity: "",
     meal_location: "",
-    meal_time: "" 
+    meal_time: ""
   },
 
   MEAL_CHANGE_EVENT = "changeMeal",
@@ -26,6 +27,10 @@
 
     updateHostNumber: function(hostNumber){
       _currentMeal.host_number = hostNumber;
+    },
+
+    updateActivity: function(activity){
+      _currentMeal.activity = activity;
     },
 
     updateLocation: function(mealLocation){
@@ -60,6 +65,10 @@
           break;
         case (MealConstants.MEAL_UPDATE_HOST_NUMBER):
           root.MealStore.updateHostNumber(payload.hostNumber);
+          root.MealStore.emit(MEAL_CHANGE_EVENT);
+          break;
+        case (MealConstants.MEAL_UPDATE_ACTIVITY):
+          root.MealStore.updateActivity(payload.activity);
           root.MealStore.emit(MEAL_CHANGE_EVENT);
           break;
         case (MealConstants.MEAL_UPDATE_LOCATION):

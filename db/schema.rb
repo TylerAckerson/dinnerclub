@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314011551) do
+ActiveRecord::Schema.define(version: 20160505020126) do
 
   create_table "attendee_responses", force: :cascade do |t|
     t.string   "from"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160314011551) do
     t.datetime "updated_at",    null: false
     t.string   "meal_location"
     t.string   "host_number"
+    t.string   "activity"
   end
 
   create_table "users", force: :cascade do |t|

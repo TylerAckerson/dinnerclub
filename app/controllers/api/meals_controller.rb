@@ -2,8 +2,8 @@ class Api::MealsController < ApplicationController
   def initialize
     account_sid = Rails.application.secrets.account_sid
     auth_token = Rails.application.secrets.auth_token
-    
-    @client = Twilio::REST::Client.new account_sid, auth_token 
+
+    @client = Twilio::REST::Client.new account_sid, auth_token
     @account_num = Rails.application.secrets.account_num
   end
 
@@ -13,11 +13,11 @@ class Api::MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.owner_id = 1
-    
+
     if @meal.save
       # @client.messages.create(
-      #   :from => @account_num, 
-      #   :to => @meal.host_number, 
+      #   :from => @account_num,
+      #   :to => @meal.host_number,
       #   :body => "Your meal was created: #{@meal.meal_time} at #{@meal.meal_location}."
       # )
 
@@ -35,6 +35,6 @@ class Api::MealsController < ApplicationController
 
   private
   def meal_params
-    params.require(:meal).permit(:meal_time, :host_name, :host_number, :meal_location)
+    params.require(:meal).permit(:meal_time, :host_name, :host_number, :activity, :meal_location)
   end
 end

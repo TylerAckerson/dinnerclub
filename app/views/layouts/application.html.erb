@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DinnerClub</title>
+  <title>Let's</title>
 
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
@@ -12,6 +12,17 @@
   <%= csrf_meta_tag %>
 
   <script src="././assets/typed.js"></script>
+
+  <script>
+    $('#select-beast').selectize({
+      create: true,
+      sortField: {
+      field: 'text',
+      direction: 'asc'
+      },
+      dropdownParent: 'body'
+    });
+  </script>
 
   <link rel="icon"
     type="image/png"

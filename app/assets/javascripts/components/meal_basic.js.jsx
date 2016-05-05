@@ -35,6 +35,11 @@ MealBasicInfo = React.createClass({
     MealActions.updateHostNumber(e.currentTarget.value);
   },
 
+  updateActivity: function (e) {
+    e.preventDefault();
+    MealActions.updateActivity(e.currentTarget.value);
+  },
+
   updateLocation: function (e) {
     e.preventDefault();
     MealActions.updateLocation(e.currentTarget.value);
@@ -48,6 +53,7 @@ MealBasicInfo = React.createClass({
   runValidations: function () {
     hostName = this.validateHostName(this.state.host_name);
     hostNumber = this.validateHostNumber(this.state.host_number);
+    activity = this.validateActivity(this.state.activity);
     mealLocation = this.validateLocation(this.state.meal_location);
     mealTime = this.validateDateTime(this.state.meal_time);
 
@@ -73,6 +79,16 @@ MealBasicInfo = React.createClass({
       return true;
     } else {
       $("#host-number").addClass("invalid");
+      return false;
+    }
+  },
+
+  validateActivity: function (activity) {
+    if ( MealConstants.STRING_REGEXP.test(activity) ) {
+      $("#activity").removeClass("invalid");
+      return true;
+    } else {
+      $("#activity").addClass("invalid");
       return false;
     }
   },
@@ -132,6 +148,23 @@ MealBasicInfo = React.createClass({
                    onChange={this.updateHostNumber}
                    value={this.state.host_number}
                    id="host-number"/>
+            <input className="form-control"
+                   type="text"
+                   placeholder="Type of Activity"
+                   onChange={this.updateActivity}
+                   value={this.state.activity}
+                   id="activty"/>
+
+            <div class="control-group">
+               <select id="select-beast" class="demo-default" placeholder="Select a person...">
+                 <option value="">Select a person...</option>
+                 <option value="4">Thomas Edison</option>
+                 <option value="1">Nikola</option>
+                 <option value="3">Nikola Tesla</option>
+                 <option value="5">Arnold Schwarzenegger</option>
+               </select>
+             </div>
+
             <input className="form-control"
                    type="text"
                    placeholder="Location"

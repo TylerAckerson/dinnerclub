@@ -29,6 +29,7 @@ gem 'bootstrap-sass'
 gem 'underscore-rails'
 gem 'newrelic_rpm'
 gem 'twilio-ruby'
+gem 'selectize-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
